@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Release Pipeline Outro</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@geist-ui/core@2.2.0/dist/geist-ui.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        color: #fff;
+        font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .frame {
+        position: relative;
+        width: 1080px;
+        height: 1080px;
+        overflow: hidden;
+        background: #000;
+      }
+
+      .copy {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        padding: 120px;
+      }
+
+      .stack {
+        display: grid;
+        gap: 28px;
+      }
+
+      .line {
+        margin: 0;
+        opacity: 0;
+      }
+
+      .line-primary {
+        font-size: 54px;
+        line-height: 1.18;
+        letter-spacing: -0.05em;
+        font-weight: 600;
+        color: #f5f5f5;
+      }
+
+      .line-secondary {
+        font-size: 62px;
+        line-height: 1;
+        letter-spacing: -0.06em;
+        font-weight: 700;
+        color: #ffffff;
+      }
+
+      .cursor {
+        display: inline-block;
+        width: 12px;
+        height: 1em;
+        margin-left: 10px;
+        vertical-align: -0.12em;
+        background: #fff;
+        opacity: 0.9;
+        animation: blink 1s step-end infinite;
+      }
+
+      .micro {
+        position: absolute;
+        left: 50%;
+        bottom: 88px;
+        transform: translateX(-50%);
+        color: #8d8d8d;
+        font-size: 18px;
+        letter-spacing: -0.02em;
+        opacity: 0;
+      }
+
+      @keyframes blink {
+        0%,
+        49% {
+          opacity: 0.95;
+        }
+        50%,
+        100% {
+          opacity: 0.15;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <div class="copy">
+        <div class="stack">
+          <p id="line1" class="line line-primary">Espero que les haya gustado<span class="cursor"></span></p>
+          <p id="line2" class="line line-secondary">Gracias.</p>
+        </div>
+      </div>
+      <div id="micro" class="micro">release engineering, sin más ruido</div>
+    </div>
+
+    <script>
+      const line1 = document.getElementById("line1");
+      const line2 = document.getElementById("line2");
+      const micro = document.getElementById("micro");
+
+      anime
+        .timeline({
+          autoplay: true,
+          easing: "easeInOutSine",
+        })
+        .add({
+          targets: line1,
+          opacity: [0, 1],
+          translateY: [10, 0],
+          duration: 900,
+          easing: "easeOutQuad",
+        })
+        .add({
+          duration: 500,
+        })
+        .add({
+          targets: line2,
+          opacity: [0, 1],
+          translateY: [12, 0],
+          duration: 750,
+          easing: "easeOutQuad",
+        })
+        .add({
+          targets: micro,
+          opacity: [0, 1],
+          duration: 500,
+          easing: "easeOutQuad",
+        }, "-=200");
+    </script>
+  </body>
+</html>

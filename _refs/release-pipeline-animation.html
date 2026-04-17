@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Release Pipeline</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@geist-ui/core@2.2.0/dist/geist-ui.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        color: #fff;
+        font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .frame {
+        position: relative;
+        width: 1080px;
+        height: 1080px;
+        overflow: hidden;
+        background: #000;
+      }
+
+      .title-block {
+        position: absolute;
+        top: 78px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: grid;
+        gap: 12px;
+        opacity: 0;
+        text-align: center;
+      }
+
+      .title {
+        margin: 0;
+        font-size: 58px;
+        line-height: 1;
+        letter-spacing: -0.05em;
+        font-weight: 700;
+      }
+
+      .subtitle {
+        margin: 0;
+        color: #a3a3a3;
+        font-size: 24px;
+        letter-spacing: -0.02em;
+        font-weight: 400;
+      }
+
+      .diagram-wrap {
+        position: absolute;
+        inset: 0;
+      }
+
+      svg {
+        width: 1080px;
+        height: 1080px;
+        display: block;
+      }
+
+      .node {
+        fill: rgba(255, 255, 255, 0.02);
+        stroke: #ffffff;
+        stroke-width: 2;
+        rx: 18;
+        opacity: 0;
+      }
+
+      .node-accent {
+        stroke-width: 2.2;
+      }
+
+      .node-label {
+        fill: #ffffff;
+        font-size: 22px;
+        font-weight: 500;
+        text-anchor: middle;
+        dominant-baseline: middle;
+        opacity: 0;
+      }
+
+      .node-label-sm {
+        fill: #ffffff;
+        font-size: 20px;
+        font-weight: 500;
+        text-anchor: middle;
+        dominant-baseline: middle;
+        opacity: 0;
+      }
+
+      .line {
+        stroke: #ffffff;
+        stroke-width: 2;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        opacity: 0;
+      }
+
+      .pulse {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: #fff;
+        border-radius: 999px;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .status {
+        position: absolute;
+        left: 50%;
+        bottom: 104px;
+        transform: translateX(-50%);
+        text-align: center;
+        color: #b8b8b8;
+        font-size: 21px;
+        letter-spacing: -0.02em;
+        opacity: 0;
+        width: 620px;
+        min-height: 30px;
+        line-height: 1.35;
+      }
+
+      .shimmer {
+        display: inline-block;
+        background: linear-gradient(
+          90deg,
+          #7d7d7d 0%,
+          #ffffff 18%,
+          #8c8c8c 40%,
+          #8c8c8c 60%,
+          #ffffff 82%,
+          #7d7d7d 100%
+        );
+        background-size: 220% auto;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textShine 1.8s linear infinite;
+      }
+
+      @keyframes textShine {
+        0% {
+          background-position: 220% center;
+        }
+        100% {
+          background-position: 0% center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <div class="title-block" id="titleBlock">
+        <h1 class="title">Separar responsabilidades</h1>
+        <p class="subtitle"></p>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="status" id="statusText">
+          <span class="shimmer">Preparando release...</span>
+        </div>
+        <div class="pulse" id="pulse"></div>
+
+        <svg viewBox="0 0 1080 1080" aria-hidden="true">
+          <!-- top row -->
+          <rect id="nodeMain" class="node" x="110" y="318" width="140" height="78" rx="18" />
+          <text id="labelMain" class="node-label" x="180" y="357">main</text>
+
+          <rect id="nodeRelease" class="node node-accent" x="330" y="295" width="230" height="124" rx="22" />
+          <text id="labelRelease" class="node-label" x="445" y="357">Release PR</text>
+
+          <rect id="nodeTag" class="node" x="640" y="318" width="132" height="78" rx="18" />
+          <text id="labelTag" class="node-label" x="706" y="357">tag</text>
+
+          <!-- bottom row -->
+          <rect id="nodeDraft" class="node" x="178" y="622" width="214" height="90" rx="18" />
+          <text id="labelDraft" class="node-label-sm" x="285" y="667">draft release</text>
+
+          <rect id="nodeAssets" class="node" x="434" y="602" width="236" height="130" rx="18" />
+          <text id="labelAssets1" class="node-label-sm" x="552" y="652">assets +</text>
+          <text id="labelAssets2" class="node-label-sm" x="552" y="686">latest.json</text>
+
+          <rect id="nodePublish" class="node node-accent" x="712" y="622" width="198" height="90" rx="18" />
+          <text id="labelPublish" class="node-label" x="811" y="667">publish</text>
+
+          <!-- lines -->
+          <path id="lineTop1" class="line" d="M250 357 H330" />
+          <path id="lineTop2" class="line" d="M560 357 H640" />
+          <path id="lineDown" class="line" d="M706 396 V560 H285 V622" />
+          <path id="lineBottom1" class="line" d="M392 667 H434" />
+          <path id="lineBottom2" class="line" d="M670 667 H712" />
+        </svg>
+      </div>
+    </div>
+
+    <script>
+      const titleBlock = document.getElementById("titleBlock");
+      const statusText = document.getElementById("statusText");
+      const pulse = document.getElementById("pulse");
+
+      const nodeMain = document.getElementById("nodeMain");
+      const nodeRelease = document.getElementById("nodeRelease");
+      const nodeTag = document.getElementById("nodeTag");
+      const nodeDraft = document.getElementById("nodeDraft");
+      const nodeAssets = document.getElementById("nodeAssets");
+      const nodePublish = document.getElementById("nodePublish");
+
+      const labelMain = document.getElementById("labelMain");
+      const labelRelease = document.getElementById("labelRelease");
+      const labelTag = document.getElementById("labelTag");
+      const labelDraft = document.getElementById("labelDraft");
+      const labelAssets1 = document.getElementById("labelAssets1");
+      const labelAssets2 = document.getElementById("labelAssets2");
+      const labelPublish = document.getElementById("labelPublish");
+
+      const lineTop1 = document.getElementById("lineTop1");
+      const lineTop2 = document.getElementById("lineTop2");
+      const lineDown = document.getElementById("lineDown");
+      const lineBottom1 = document.getElementById("lineBottom1");
+      const lineBottom2 = document.getElementById("lineBottom2");
+
+      function showStatus(text) {
+        anime({
+          targets: statusText,
+          opacity: [1, 0],
+          duration: 180,
+          easing: "easeInOutQuad",
+          complete: () => {
+            statusText.innerHTML = `<span class="shimmer">${text}</span>`;
+            anime({
+              targets: statusText,
+              opacity: [0, 1],
+              duration: 260,
+              easing: "easeInOutQuad",
+            });
+          },
+        });
+      }
+
+      function revealNode(node, label, duration = 420) {
+        return {
+          targets: [node, label],
+          opacity: [0, 1],
+          duration,
+          easing: "easeOutQuad",
+        };
+      }
+
+      function revealNodePair(node, labels, duration = 420) {
+        return {
+          targets: [node, ...labels],
+          opacity: [0, 1],
+          duration,
+          easing: "easeOutQuad",
+        };
+      }
+
+      function drawPath(path, duration = 700) {
+        return {
+          targets: path,
+          opacity: [0, 1],
+          strokeDashoffset: [anime.setDashoffset, 0],
+          duration,
+          easing: "easeInOutQuad",
+        };
+      }
+
+      function pulseAlong(pathElement, duration = 1100) {
+        const path = pathElement;
+        const length = path.getTotalLength();
+
+        anime({
+          targets: pulse,
+          opacity: [0, 1, 1, 0],
+          duration,
+          easing: "easeInOutSine",
+          begin: () => {
+            pulse.style.left = "0px";
+            pulse.style.top = "0px";
+          },
+          update: (anim) => {
+            const point = path.getPointAtLength((anim.progress / 100) * length);
+            pulse.style.left = `${point.x - 3}px`;
+            pulse.style.top = `${point.y - 3}px`;
+          },
+        });
+      }
+
+      const timeline = anime.timeline({
+        autoplay: false,
+        easing: "easeInOutSine",
+      });
+
+      timeline
+        .add({
+          targets: [titleBlock, statusText],
+          opacity: [0, 1],
+          duration: 650,
+          easing: "easeOutQuad",
+        })
+        .add({
+          duration: 1100,
+        })
+        .add(revealNode(nodeMain, labelMain), "-=200")
+        .add(revealNode(nodeRelease, labelRelease), "-=220")
+        .add(drawPath(lineTop1), "-=120")
+        .add({
+          duration: 220,
+          complete: () => {
+            showStatus("release-please prepara la Release PR");
+            pulseAlong(lineTop1, 1200);
+          },
+        })
+        .add({
+          duration: 1250,
+        })
+        .add(revealNode(nodeTag, labelTag), "+=120")
+        .add(drawPath(lineTop2), "-=120")
+        .add({
+          duration: 220,
+          complete: () => {
+            showStatus("Se crea la tag correcta");
+            pulseAlong(lineTop2, 1200);
+          },
+        })
+        .add({
+          duration: 720,
+        })
+        .add(revealNode(nodeDraft, labelDraft), "+=260")
+        .add(drawPath(lineDown, 900), "-=160")
+        .add({
+          duration: 220,
+          complete: () => {
+            showStatus("Se prepara la draft release");
+            pulseAlong(lineDown, 1300);
+          },
+        })
+        .add({
+          duration: 760,
+        })
+        .add(revealNodePair(nodeAssets, [labelAssets1, labelAssets2]), "+=140")
+        .add(drawPath(lineBottom1), "-=120")
+        .add({
+          duration: 220,
+          complete: () => {
+            showStatus("Se generan assets y latest.json");
+            pulseAlong(lineBottom1, 1200);
+          },
+        })
+        .add({
+          duration: 760,
+        })
+        .add(revealNode(nodePublish, labelPublish), "+=120")
+        .add(drawPath(lineBottom2), "-=120")
+        .add({
+          duration: 240,
+          complete: () => {
+            showStatus("La release se publica al final");
+            pulseAlong(lineBottom2, 1200);
+          },
+        })
+        .add({
+          duration: 1200,
+        });
+
+      timeline.play();
+    </script>
+  </body>
+</html>

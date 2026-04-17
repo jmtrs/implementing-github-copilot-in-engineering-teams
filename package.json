@@ -1,0 +1,14 @@
+{
+  "name": "github-copilot-team-rollout",
+  "private": true,
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^52.14.2",
+    "@slidev/theme-default": "^0.25.0",
+    "@fontsource/geist-mono": "^5.2.7"
+  }
+}
