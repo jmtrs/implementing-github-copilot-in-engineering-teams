@@ -2,104 +2,88 @@
 
 ## Contexto
 
-Deck Slidev de 13-14 slides para un team rollout de GitHub Copilot.  
-Contenido: `_refs/using-github-copilot-well_working-document.md`  
-Estilo visual (colores, tipografía, animaciones): `_refs/release-pipeline-*.html`
+Deck Slidev de 18 slides para un team rollout de GitHub Copilot.  
+La estructura fue reorientada para apoyarse en un monorepo real derivado de X, pero presentado de forma anónima y sin detalles privados.
 
 ---
 
 ## Decisiones tomadas
 
-- **Idioma**: Inglés (audiencia trabaja en inglés)
+- **Idioma**: Slides y speaker notes en inglés
+- **Audiencia**: Equipo técnico
 - **Aspecto**: 16:9
-- **Animaciones**: Nativas Slidev (`v-click`, `v-motion`) — sin anime.js
+- **Animaciones**: Nativas Slidev (`v-click`, `v-motion`) — sin librerías externas
 - **Tipografía**: Geist Mono vía `@fontsource/geist-mono`
-- **Paleta**: `#000` fondo · `#f5f5f5`/`#fff` texto primario · `#8d8d8d` secundario
+- **Paleta**: `#000` fondo · `#f5f5f5` texto primario · `#8d8d8d` secundario
+- **Narrativa**: rollout realista sobre un repo anónimo pero específico
+- **Privacidad**: sin nombre X en slides, sin URLs internas, sin payloads sensibles, sin screenshots del producto
 
 ---
 
 ## Checklist
 
-### Fase 0 — Reorganizar el repo
-- [x] Crear carpeta `_refs/`
-- [x] Mover `release-pipeline-animation.html` → `_refs/`
-- [x] Mover `release-pipeline-outro.html` → `_refs/`
-- [x] Mover `using-github-copilot-well_working-document.md` → `_refs/`
-- [x] Actualizar `PLAN.md` como checklist vivo
+### Fase 0 — Base del proyecto
+- [x] Mantener `_refs/` como fuente de contenido y referencias visuales
+- [x] Mantener `PLAN.md` como checklist vivo y sincronizado
+- [x] Confirmar stack Slidev y tipografía base
 
-### Fase 1 — Scaffold Slidev
-- [x] `package.json` con `@slidev/cli`, `@slidev/theme-default`, `@fontsource/geist-mono`
-- [x] `slides.md` con frontmatter mínimo (tema, aspecto, fuente)
-- [x] `styles/global.css` con variables de color y fuente base
-- [x] `components/` (carpeta vacía)
-- [x] Verificar: `npx slidev` abre cover slide sin errores
+### Fase 1 — Reorientación editorial
+- [x] Cambiar `_refs/guide.md` de repo genérico a rollout basado en un monorepo real
+- [x] Cambiar el caso base de “repo sin setup” a “repo con guidance parcial pero sin baseline Copilot”
+- [x] Reescribir demos para baseline + tarea cross-layer
+- [x] Mantener el contenido anonimizado pero trazable a una estructura real
 
-### Fase 2 — Cover slide (Slide 0)
-- [x] Título: "Implementing GitHub Copilot in Engineering Teams"
-- [x] Subtítulo: "Shared setup, workflow, and guardrails"
-- [x] Estilo: fondo negro, Geist Mono, animaciones fade-in escalonadas
-- [x] Verificar visualmente en navegador
-- [x] Speaker notes del cover redactadas y aprobadas
+### Fase 2 — Deck
+- [x] Cover slide
+- [ ] Slide 1: "Why this needs a shared AI operating model"
+- [ ] Slide 2: "How Copilot works in practice"
+- [ ] Slide 3: "Three control layers"
+- [ ] Slide 4: "What Enterprise and the organization control"
+- [ ] Slide 5: "What Enterprise does not solve"
+- [ ] Slide 6: "What a real repo setup looks like"
+- [ ] Slide 7: "The baseline we assume is already mounted"
+- [ ] Slide 8: "What each repository still must define"
+- [ ] Slide 9: "What good prompting looks like"
+- [ ] Slide 10: "What bad prompting looks like"
+- [ ] Slide 11: "The CLI patterns and capabilities that matter daily"
+- [ ] Slide 12: "How to use `/plan` well"
+- [ ] Slide 13: "How to use review and verification well"
+- [ ] Slide 14: "Skills, custom agents, and subagents"
+- [ ] Slide 15: "What quality and safety mean here"
+- [ ] Slide 16: "What changes if other AI tools are also allowed"
+- [ ] Slide 17: "Demo 1: from bad prompt to good prompt"
+- [ ] Slide 18: "Demo 2 and next steps"
 
-### Fase 3 — Slides de contenido (1–13)
-- [ ] Slide 1: "Why we need a shared AI setup"
-- [ ] Slide 2: "What GitHub Copilot and Copilot CLI are"
-- [ ] Slide 3: "Three control layers (Org → Repo → Local)"
-- [ ] Slide 4: "What the organization can control"
-- [ ] Slide 5: "What the repository can control"
-- [ ] Slide 6: "Minimum setup for repos with no AI configuration"
-- [ ] Slide 7: "Demo 1 — Initialize repo baseline"
-- [ ] Slide 8: "Team workflow to standardize"
-- [ ] Slide 9: "Quality, security, and real limits"
-- [ ] Slide 10: "Can we allow Codex or Claude?"
-- [ ] Slide 11: "What changes with mixed AI tools"
-- [ ] Slide 12: "Demo 2 — Show standard workflow"
-- [ ] Slide 13: "Recommendation and next steps"
-- [ ] Slide 14: "Thanks." *(cierre, patrón de `release-pipeline-outro.html`)*
-
-### Fase 4 — Componentes visuales
-- [ ] `ControlLayers.vue` — diagrama Org → Repo → Local
-- [ ] `WorkflowSteps.vue` — pasos del team workflow con `v-click`
-- [ ] `BlinkingCursor.vue` — reutilizable en cover y cierre
-
-### Fase 5 — Pulido final
+### Fase 3 — Notes y consistencia
 - [ ] Speaker notes en todos los slides
-- [ ] Animaciones de entrada con `v-motion` en slides clave
-- [ ] Probar modo presentación completo (`npx slidev --open`)
-- [ ] Exportar PDF de respaldo (`npx slidev export`)
+- [ ] Speaker notes en inglés con frases cortas y sin modismos
+- [ ] Referencias explícitas a `.github/copilot-instructions.md`, `.github/instructions/*.instructions.md` y `AGENTS.md` en la guía
+- [ ] Comandos del baseline alineados con frontend y backend reales
+
+### Fase 4 — Verificación
+- [ ] Probar modo presentación completo (`npm run dev`)
+- [ ] Verificar visualmente el deck completo
+- [ ] Ejecutar build del deck (`npm run build`)
+- [ ] Exportar PDF de respaldo (`npm run export`)
 
 ---
 
 ## Estructura del proyecto
 
 ```
-├── slides.md               # Entrada: frontmatter global + imports
-├── slides/                 # Un archivo .md por slide
+├── slides.md
+├── slides/
 │   ├── 00-cover.md
-│   ├── 01-why-shared-setup.md
-│   └── ...
-├── style.css               # Cargado automáticamente por Slidev (Geist Mono + paleta)
-├── components/             # Componentes Vue reutilizables
-│   ├── ControlLayers.vue
-│   ├── WorkflowSteps.vue
-│   └── BlinkingCursor.vue
-├── _refs/                  # Archivos de referencia (no van al build)
-├── package.json
+│   ├── 01-why-shared-rollout.md
+│   ├── 02-what-copilot-changes.md
+│   ├── ...
+│   └── 14-next-steps.md
+├── _refs/guide.md
+├── style.css
+├── components/
 └── PLAN.md
 ```
 
-## Archivos críticos
-
-| Archivo | Rol |
-|---|---|
-| `_refs/using-github-copilot-well_working-document.md` | Fuente de contenido |
-| `_refs/release-pipeline-animation.html` | Referencia visual (SVG, animaciones) |
-| `_refs/release-pipeline-outro.html` | Referencia visual (tipografía, cursor) |
-| `slides.md` | Entrada del deck (frontmatter + imports) |
-| `slides/*.md` | Un archivo por slide |
-| `style.css` | Geist Mono + variables de color globales |
-| `components/*.vue` | Componentes de diagrama reutilizables |
-
 ---
 
-**Estado actual**: Fase 3 — Slides de contenido (siguiente: Slide 1)
+**Estado actual**: cover y slides 1 creada;

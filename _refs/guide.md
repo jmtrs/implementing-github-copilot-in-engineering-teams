@@ -5,43 +5,31 @@
 
 ## How to use this document
 
-This document is a reusable working draft for a presentation about GitHub Copilot and Copilot CLI.
+This document is a working draft for a rollout presentation about GitHub Copilot and Copilot CLI.
 
 It is designed to be:
-- generic enough to reuse in other projects
-- practical enough to apply to a real repository
+- practical for a technical team
+- grounded in a real frontend and backend workspace
+- anonymous enough to avoid exposing private project details
 - simple enough for a Spanish-speaking audience using English at work
 
 This version assumes:
-- the repository has no AI setup yet
-- the organization wants a real rollout path
-- the team already uses, or plans to use, GitHub Copilot CLI
+- the team already works with two coordinated repositories from one parent workspace
+- the minimum Copilot baseline is already configured in the real repositories
+- `/.github/copilot-instructions.md` exists in both frontend and backend
+- `AGENTS.md` still exists as complementary guidance
+- the audience already uses Copilot, but not always well
+- the examples should be derived from a real project shape without naming the product
 
 The structure includes:
 - presentation title
 - presentation goal
-- 13-slide deck outline
+- 18-slide deck outline
 - presenter notes
 - 2 demo sections
-- recommended repo baseline
+- recommended repository baseline
 - rollout checklist
-- appendix on Copilot, Codex, and Claude
-- source appendix for validation work
-
----
-
-## Recommended presentation title
-
-**Implementing GitHub Copilot in Engineering Teams**  
-**Shared setup, workflow, and guardrails**
-
-Alternative titles:
-- **Working Better with GitHub Copilot**
-- **A Practical GitHub Copilot Setup**
-- **GitHub Copilot for Teams**
-
-Recommended file name:
-`using-github-copilot-well-team-rollout`
+- guidance on Copilot Enterprise, AGENTS, and mixed AI tools
 
 ---
 
@@ -50,62 +38,72 @@ Recommended file name:
 The goal of this presentation is not to show every Copilot feature.
 
 The goal is to explain:
-1. what GitHub Copilot and Copilot CLI are
-2. what the organization can control
-3. what the repository must define
-4. how a team should use Copilot in a shared and safe way
-5. what changes if other AI tools are also allowed
-6. what the next rollout steps should be
+1. why the team needs one shared AI operating model
+2. how Copilot Enterprise and repository setup shape behavior
+3. how to stop using Copilot poorly in day-to-day work
+4. how to prompt and steer Copilot CLI well
+5. how to use planning, review, skills, agents, and subagents with intent
+6. how to keep quality and guardrails intact
+7. what the next rollout steps should be
 
 ---
 
-# 13-slide presentation structure
+# 18-slide presentation structure
 
 ---
 
-## Slide 1. Why we need a shared AI setup
+## Slide 1. Why this needs a shared AI operating model
 
 ### Slide title
-**Why we need a shared AI setup**
+**Why this needs a shared AI operating model**
 
 ### Slide text
-- AI is already used in development.
-- Today, we do not have one common standard.
-- Our goal is simple: more speed, more quality, more control.
+- AI is already part of development work.
+- Many teams already use Copilot, but not always in the same way.
+- Without one shared model, we get drift, review noise, and inconsistent results.
 
 ### Presenter notes
-This slide should frame the talk.
+This slide should frame the talk around behavior, not tooling alone.
 
-The message is:
-we do not need more AI chaos. We need one shared way of working.
-
-Do not start with features.
-Start with the operating model.
+### Animation / Design
+- Keep this slide simple.
+- Use one title fade-up on entry.
+- Reveal the bullets with a short staggered entrance.
+- Do not add extra visual elements or complex motion.
 
 Suggested speaking notes:
 
-> AI is already part of development work. The real question is not whether we use it. The real question is how we use it as a team. If we do not define one shared setup, each person will use AI in a different way, and that creates noise, inconsistency, and unnecessary risk.
+> AI is already part of development work. The question now is not access. The question is how we use it well as a team. If each person uses Copilot with a different approach, we get drift, review noise, and inconsistent quality. What we need is one shared way of working.
 
 ---
 
-## Slide 2. What GitHub Copilot and Copilot CLI are
+## Slide 2. How Copilot works in practice
 
 ### Slide title
-**What GitHub Copilot and Copilot CLI are**
+**How Copilot works in practice**
 
 ### Slide text
-- GitHub Copilot helps with coding tasks across suggestions, chat, reviews, and agent workflows.
-- Copilot CLI is the terminal version.
-- In Copilot CLI, repository instruction files become part of the working context.
+- Copilot is not only autocomplete.
+- It works through context, instructions, policies, and workflow.
+- Enterprise, repository, and local usage all shape the result.
 
 ### Presenter notes
-Keep this simple.
-The point is not to explain every product surface.
-The point is to show that Copilot is not only autocomplete.
+Keep this practical and not product-marketing.
+
+### Animation / Design
+- Use a split 50/50 layout.
+- Put the visual on the left and the text on the right.
+- The left side should use a real-looking coding image, not a diagram.
+- Recommended visual: an editor with Copilot visibly completing or suggesting code inline.
+- The image should feel real and legible at a glance, without too much small text.
+- Avoid admin settings, dashboards, or configuration screens.
+- Animate the image first with a soft fade-in.
+- Then reveal the text on the right with a short staggered entrance.
+- Keep the motion clean and restrained.
 
 Suggested speaking notes:
 
-> GitHub Copilot is more than code completion. It can help through chat, code review, and agent-style workflows. Copilot CLI brings that experience into the terminal. In CLI, context matters a lot, and repository instruction files are part of that context.
+> Copilot is not only autocomplete. In practice, it works through the context it sees, the instructions it receives, the policies that enable or disable features, and the workflow we expect people to follow. So rollout is not one switch. It is a stack of decisions.
 
 ---
 
@@ -115,505 +113,547 @@ Suggested speaking notes:
 **Three control layers**
 
 ### Slide text
-- Organization
+- Enterprise or organization
 - Repository
 - Local tool and user environment
 
 ### Presenter notes
-This is a very important slide.
-It prevents a common mistake: thinking that organization setup controls everything.
-It does not.
+This slide explains why rollout is never only an admin setting.
+
+### Animation / Design
+- Use a split 50/50 layout.
+- Put the text on the left and the visual on the right.
+- The right side should use a clear vertical diagram.
+- Recommended visual: three stacked layers showing Enterprise or organization, Repository, and Local tool and user environment.
+- The diagram should feel structured and easy to read, not decorative.
+- Animate the diagram in sequence from top to bottom.
+- Then reveal the text on the left with a short staggered entrance.
+- Keep the motion restrained and clean.
 
 Suggested speaking notes:
 
-> To govern AI well, we need to separate three layers. The organization controls access and policies. The repository controls shared instructions and workflow guidance. The local tool and user environment still matter, especially if people also use other AI tools outside Copilot.
+> We need to separate three layers. Enterprise or organization controls access and policy. The repository controls shared working rules. The local tool and user environment still matter, especially when people use terminals, agents, or other AI tools outside one standard path.
 
 ---
 
-## Slide 4. What the organization can control
+## Slide 4. What Enterprise and the organization control
 
 ### Slide title
-**What the organization can control**
+**What Enterprise and the organization control**
 
 ### Slide text
-- The organization can control access, policies, features, and models.
-- Enterprise policies can override organization settings.
-- The organization can also review usage and adoption metrics.
+- Access, features, policies, and model choices
+- GitHub-based review and agent capabilities
+- Metrics and visibility, with uneven coverage by surface
 
 ### Presenter notes
-This is the governance slide.
-Make it clear that this is where shared access and shared visibility start.
+This compresses the governance story into one slide.
 
 Suggested speaking notes:
 
-> At organization level, we can decide who gets access, which features are available, which models are allowed, and how we track adoption. This is the right place to define shared governance. But this still does not define how Copilot CLI behaves inside a repository.
+> At enterprise and organization level, we can decide who gets access, which features are enabled, which models are available, and whether some GitHub-based agent capabilities are allowed. We can also review usage data, but we should be careful because metrics do not cover every Copilot surface in the same way.
 
 ---
 
-## Slide 5. What the repository can control from day one
+## Slide 5. What Enterprise does not solve
 
 ### Slide title
-**What the repository can control from day one**
+**What Enterprise does not solve**
 
 ### Slide text
-- `.github/copilot-instructions.md` for repository-wide rules
-- `.github/instructions/*.instructions.md` for path-specific rules
-- `AGENTS.md` for agent guidance
-- These files are read automatically by Copilot CLI in that repository
+- Repository architecture
+- Frontend and backend contracts
+- Prompt quality and task scoping
+- Verification expectations for real changes
 
 ### Presenter notes
-This is where the practical setup starts.
-This slide shows the minimum real foundation for shared CLI behavior.
+This slide prevents an admin-only interpretation.
 
 Suggested speaking notes:
 
-> If we want shared behavior in Copilot CLI, the repository must define it. The core files are repository-wide instructions, path-specific instructions, and optional agent guidance. These are the files that make Copilot behave more like our team expects.
+> Enterprise gives us policy and control, but it does not solve repository-level engineering questions. It does not know our contracts, our ownership model, our preferred task size, or what counts as enough verification. Those things still belong to the repositories and to the team workflow.
 
 ---
 
-## Slide 6. Our minimum setup for a repo with no AI configuration
+## Slide 6. What a real repo setup looks like
 
 ### Slide title
-**Our minimum setup for a repo with no AI configuration**
+**What a real repo setup looks like**
 
 ### Slide text
-- Start with one small `.github/copilot-instructions.md`
-- Put build and test commands there
-- Add code style, required checks, and architecture rules
-- Add path-specific files only where needed
-- Keep instructions short, clear, and specific
+- Two real repositories coordinated from one parent workspace
+- Repository-wide Copilot baseline already configured
+- `AGENTS.md` still useful as complementary guidance
 
 ### Presenter notes
-Do not make this look heavy.
-This is meant to feel realistic and easy to start.
+This is where the case study becomes concrete.
 
 Suggested speaking notes:
 
-> The right first step is a small baseline, not a large rule book. We should start with the commands and rules that matter most: how to build, how to test, how to verify work, and the main architecture expectations. Then we add path-specific instructions only where they really help.
+> In our case, the right mental model is not one physical monorepo. It is one working workspace with a frontend repository and a backend repository. The Copilot baseline lives in the real repositories where the code and Git history live. Repository-wide `copilot-instructions.md` gives the most portable Copilot baseline, and `AGENTS.md` still helps, especially for agent workflows.
 
 ---
 
-## Slide 7. Demo 1: initialize the repo baseline
+## Slide 7. The baseline we assume is already mounted
 
 ### Slide title
-**Demo 1: initialize the repo baseline**
+**The baseline we assume is already mounted**
 
 ### Slide text
-- Create `.github/copilot-instructions.md`
-- Add one small `backend.instructions.md`
-- Ask Copilot CLI a repository question
-- Show that it uses the instructions automatically
+- `/.github/copilot-instructions.md` in each real repository
+- `AGENTS.md` as complementary guidance
+- Path-specific rules only where they add real value
 
 ### Presenter notes
-This is the first demo.
-Its purpose is not to impress.
-Its purpose is to prove that shared repository instructions change behavior from day one.
+This slide should make the setup feel already solved.
 
 Suggested speaking notes:
 
-> This first demo is intentionally simple. We are not showing complex generation. We are showing that even a small baseline changes how Copilot CLI answers and works inside the repo.
+> We are not spending this talk on bootstrap. We assume the minimum baseline is already mounted. In practice, that means repository-wide Copilot instructions in each real repo, plus `AGENTS.md` as complementary guidance. Path-specific instructions are optional and should only appear where they solve a real problem.
 
 ---
 
-## Slide 8. The team workflow we should standardize
+## Slide 8. What each repository still must define
 
 ### Slide title
-**The team workflow we should standardize**
+**What each repository still must define**
 
 ### Slide text
-- Explore first
-- Use `/plan` for complex work
-- Implement in small changes
-- Verify before PR
-- Reset the session when tasks are unrelated
+- Shared rules for the code it owns
+- Contract ownership with the other side
+- Real verification commands and quality expectations
 
 ### Presenter notes
-This is one of the most important slides in the deck.
-The real value is the method, not only the tool.
+Keep this centered on engineering reality.
 
 Suggested speaking notes:
 
-> The main improvement will not come only from configuration. It will come from one shared workflow. We should explore first, plan before complex work, implement in smaller steps, verify before opening a pull request, and reset context when tasks are unrelated.
+> Even with Enterprise in place, each repository still needs to define the rules that matter in that codebase. That includes its architecture, how contracts are owned, and how changes are validated. This is where Copilot becomes project-aware instead of generic.
 
 ---
 
-## Slide 9. Quality, security, and real limits
+## Slide 9. What good prompting looks like
 
 ### Slide title
-**Quality, security, and real limits**
+**What good prompting looks like**
 
 ### Slide text
-- Require pull requests and review
-- Require tests before merge
-- Review AI changes before accepting
-- Do not rely on content exclusion for Copilot CLI
+- Clear goal
+- Relevant context
+- Constraints and limits
+- Expected output
+- One small next step
 
 ### Presenter notes
-This slide must sound serious and realistic.
-Do not oversell control.
-Do not say content exclusion solves CLI risk, because it does not.
+This is the first slide of the practical block.
 
 Suggested speaking notes:
 
-> Copilot can improve speed, but we still need normal engineering control. Pull requests, reviews, and tests remain necessary. Also, one important limitation is that content exclusion does not apply to Copilot CLI, so we should not present it as a CLI control.
+> Good prompting is not about sounding clever. It is about giving Copilot the right shape of task. A good prompt says what the goal is, what context matters, what constraints apply, what kind of output we want, and what the next step should be. The smaller and clearer the first step, the better the result.
 
 ---
 
-## Slide 10. Can we also allow Codex or Claude?
+## Slide 10. What bad prompting looks like
 
 ### Slide title
-**Can we also allow Codex or Claude?**
+**What bad prompting looks like**
 
 ### Slide text
-- Yes, but this is a governance choice, not only a user choice.
-- On GitHub, OpenAI Codex and Anthropic Claude can be enabled as third-party coding agents.
-- These GitHub third-party agents work asynchronously on issues and pull requests.
-- They are in public preview.
+- Vague asks
+- Too much scope in one prompt
+- No success criteria
+- No verification request
+- No ownership boundaries
 
 ### Presenter notes
-Keep this balanced.
-Do not say no by default.
-Do not say yes without conditions.
+This slide should feel uncomfortably familiar.
 
 Suggested speaking notes:
 
-> It is possible to allow Codex or Claude in some GitHub workflows, but that should be treated as a governance decision. On GitHub, third-party agents can work asynchronously on issues and pull requests. That is different from letting people use local tools with their own config and permissions in any way they want.
+> Most bad results start with bad prompting. The usual pattern is a vague request, too much scope, no clear success criteria, no validation step, and no ownership boundary. Then people blame the tool, even though the task itself was underspecified.
 
 ---
 
-## Slide 11. What changes when we mix many AI tools
+## Slide 11. The CLI patterns and capabilities that matter daily
 
 ### Slide title
-**What changes when we mix many AI tools**
+**The CLI patterns and capabilities that matter daily**
 
 ### Slide text
-- We will have more than one instruction system
-- We will have more than one permissions model
-- We will have more than one configuration path
-- This can create drift and confusion
+- Conversation
+- `/plan`
+- `/review`
+- Skills
+- Custom agents and subagents
 
 ### Presenter notes
-This is the practical risk slide.
-The message is not “other tools are bad”.
-The message is “more tools mean more governance work”.
+This slide is the map of the practical CLI block.
 
 Suggested speaking notes:
 
-> Mixing tools is possible, but then we are no longer managing one shared setup. We are managing more than one instruction system, more than one permissions model, and more than one rollout path. That increases the chance of drift and confusion, especially at the start.
+> We do not need to teach every CLI feature. We need to teach the few patterns and capabilities that change daily work. Normal conversation, planning, review, skills, and agent delegation are enough to improve most day-to-day tasks.
 
 ---
 
-## Slide 12. Demo 2: show the standard workflow
+## Slide 12. How to use `/plan` well
 
 ### Slide title
-**Demo 2: show the standard workflow**
+**How to use `/plan` well**
 
 ### Slide text
-- Start with `/plan`
+- Use it for complex or risky work
+- Let Copilot inspect before coding
 - Review the plan
-- Run one small implementation step
-- Ask for verification before PR
+- Execute one small step first
 
 ### Presenter notes
-This demo should show the method.
-It should not try to show a huge feature.
+This is one of the key habit-change slides.
 
 Suggested speaking notes:
 
-> This second demo shows the workflow we want the team to remember. Plan first, then implement one step, then verify before moving forward. That is the repeatable pattern we want to standardize.
+> `/plan` is one of the highest leverage habits. Use it when the task is complex, risky, or cross-layer. Let Copilot inspect the codebase first. Review the plan. Then execute only one small step. That keeps context clean and makes the work reviewable.
 
 ---
 
-## Slide 13. Recommendation and next steps
+## Slide 13. How to use review and verification well
 
 ### Slide title
-**Recommendation and next steps**
+**How to use review and verification well**
 
 ### Slide text
-- Standardize GitHub Copilot and Copilot CLI first
-- Add repository instructions in the pilot repos
-- Train the team on `/plan`, review, and validation
-- Track usage and feedback
-- Review later if we need Codex or Claude in controlled cases
+- Ask for review before merge
+- Verify the relevant files and commands
+- Ask for limits, risks, and gaps
+- Iterate in small steps
 
 ### Presenter notes
-End with a concrete recommendation.
-Make it feel like a rollout plan, not a theoretical conclusion.
+This should reinforce engineering discipline.
 
 Suggested speaking notes:
 
-> Our recommendation is to standardize Copilot first, create a small shared baseline at repository level, train the team on the workflow, and track real usage. After that, if we still see a clear need, we can review controlled use of other tools.
+> Copilot should not be the last reviewer of its own work. Ask for review, ask what was verified, ask what still looks risky, and keep the loop small. The point is not speed alone. The point is controlled speed.
+
+---
+
+## Slide 14. Skills, custom agents, and subagents
+
+### Slide title
+**Skills, custom agents, and subagents**
+
+### Slide text
+- Skills for repeatable specialist tasks
+- Custom agents for specialized roles
+- Subagents for delegation and parallel work
+- Use them when complexity justifies them
+
+### Presenter notes
+Keep this concrete and anti-hype.
+
+Suggested speaking notes:
+
+> Skills help with repeatable specialist tasks. Custom agents let Copilot use more specialized roles. Subagents help delegate and parallelize parts of the work. These are useful when complexity justifies them. They are not things we need to force into every task.
+
+---
+
+## Slide 15. What quality and safety mean here
+
+### Slide title
+**What quality and safety mean here**
+
+### Slide text
+- Keep routes thin
+- Use parameterized SQL only
+- Use `projectId`, not `scopeId`
+- Keep frontend and backend contracts aligned
+
+### Presenter notes
+This slide lands better after the CLI block.
+
+Suggested speaking notes:
+
+> After we teach the workflow, we can make the guardrails concrete. In this case, thin routes matter. Parameterized SQL matters. The payload convention matters. Contract alignment matters. These are not generic AI rules. These are the rules that keep this workspace safe and maintainable.
+
+---
+
+## Slide 16. What changes if other AI tools are also allowed
+
+### Slide title
+**What changes if other AI tools are also allowed**
+
+### Slide text
+- The repo can share some rules across tools
+- GitHub-governed third-party agents are not the same as local AI tools
+- Each extra tool adds another config and permission model
+- More tools mean more rollout work and more drift risk
+
+### Presenter notes
+Keep this near the end so it does not break the practical block.
+
+Suggested speaking notes:
+
+> Allowing more than one AI tool is possible. The repositories can still provide shared rules. But we should separate two cases. One case is third-party agents enabled inside GitHub governance. The other case is local tools that have their own configuration and permissions outside that path. In both cases the governance burden becomes higher.
+
+---
+
+## Slide 17. Demo 1. From bad prompt to good prompt
+
+### Slide title
+**Demo 1: from bad prompt to good prompt**
+
+### Slide text
+- Show a vague prompt
+- Improve it with context and constraints
+- Use `/plan`
+- Execute only the first step
+
+### Presenter notes
+This demo should prove why prompt quality changes the outcome.
+
+Suggested speaking notes:
+
+> This demo is about behavior, not features. We start with a weak prompt, improve it, ask for a plan, and keep the work to one small step. The audience should see that most day-to-day gains come from better prompting and better scoping.
+
+---
+
+## Slide 18. Demo 2 and next steps
+
+### Slide title
+**Demo 2 and next steps**
+
+### Slide text
+- Use one small cross-layer task
+- Review ownership and contract impact
+- Verify before closing
+- End with explicit team next steps
+
+### Presenter notes
+This is the end-to-end workflow demo and the explicit close.
+
+Suggested speaking notes:
+
+> The second demo should show one realistic task across repository boundaries. We check ownership, keep the step small, verify the result, and close with the next team steps we want to standardize. That is the operating model we want people to remember.
 
 ---
 
 # Demo section
 
-## Demo 1. Initialize the repo baseline
+## Demo 1. From bad prompt to good prompt
 
 ### Goal
-Show that a repository with no AI setup can gain immediate structure with a small shared baseline.
+Show that prompt quality and task framing directly change the usefulness of Copilot CLI.
 
-### Recommended setup before the demo
-Create these files:
+### What should already be true before the demo
+- The frontend repository already has its repository-wide Copilot baseline.
+- The backend repository already has its repository-wide Copilot baseline.
+- Both repositories use `/.github/copilot-instructions.md` as the main Copilot baseline.
+- `AGENTS.md` remains available as complementary guidance.
 
-```text
-.github/copilot-instructions.md
-.github/instructions/backend.instructions.md
-```
+### Suggested flow
+1. Start with a vague prompt that asks for too much.
+2. Show why the result is weak or underspecified.
+3. Rewrite the prompt with:
+   - clear goal
+   - relevant context
+   - constraints
+   - expected output
+   - one small next step
+4. Run `/plan`.
+5. Continue with the first step only.
 
-### Suggested content for `.github/copilot-instructions.md`
-
-```md
-# Repository instructions
-
-- Always explain the plan before large changes.
-- Use the existing project structure and naming conventions.
-- Before proposing code changes, identify the main files involved.
-- After code changes, explain how to verify the result.
-- Prefer small, reviewable changes over large rewrites.
-- Use the project's standard test and lint commands before finalizing work.
-```
-
-### Suggested content for `backend.instructions.md`
-
-```md
----
-applyTo: "src/backend/**/*.ts,src/api/**/*.ts"
----
-
-# Backend instructions
-
-- Follow the current service and controller patterns.
-- Do not introduce new frameworks.
-- Reuse validation and error handling patterns already present in the codebase.
-- If a change affects an API contract, call it out clearly.
-```
-
-### Suggested CLI prompt
+### Example bad prompt
 
 ```text
-Read the repository rules first.
-Then explain how you should work before changing the authentication code.
-Do not write code yet.
+Fix the API and frontend for this feature.
+```
+
+### Example improved prompt
+
+```text
+/plan Update one API payload field used by a frontend service wrapper.
+Check the owning backend route and model first.
+Then identify the frontend wrapper that must stay aligned.
+Do not implement the whole change at once.
+Propose the first small step only.
 ```
 
 ### What to explain after the demo
-- The repository now has a shared AI baseline.
-- The AI behavior is more consistent.
-- The team no longer depends only on prompt quality.
-- The repository itself carries part of the working rules.
+- Bad output often starts with bad prompting.
+- `/plan` is useful when scope or risk is unclear.
+- Smaller first steps improve both quality and reviewability.
 
 ---
 
-## Demo 2. Show the standard workflow
+## Demo 2. One real workflow end to end
 
 ### Goal
-Show the recommended working pattern for complex tasks.
+Show the daily operating model for a small cross-layer task.
+
+### Suggested flow
+1. Start from repository rules, not from a blank prompt.
+2. Identify the owning backend and frontend files.
+3. Ask for one small implementation step.
+4. Ask for verification or `/review`.
+5. Summarize remaining risks or gaps.
 
 ### Suggested CLI prompt
 
 ```text
-/plan Add validation to the login form and update the related tests
+/plan Update one API payload field used by a frontend service wrapper.
+Check the owning backend route and model first.
+Then identify the frontend wrapper that must stay aligned.
 ```
 
 Then continue with:
 
 ```text
-Proceed with step 1 only.
-After that, run the relevant tests and explain any failures.
+Implement one small step only.
+After that, run the relevant verification and explain any remaining risk.
 ```
 
 ### What to explain after the demo
-- We start with planning.
-- We review the proposed steps.
-- We implement one small step.
-- We ask for validation before moving on.
-- This creates a safer and more repeatable workflow.
+- We start from repository rules.
+- We check ownership and contract impact first.
+- We keep the task small.
+- We verify before closing.
+- This is the repeatable pattern the team should adopt.
 
 ---
 
-# Suggested starter files for a repository with no AI setup
+# Recommended repository baseline
 
-## File 1. `.github/copilot-instructions.md`
+## Repository-wide Copilot baseline
 
-```md
-# Copilot instructions
+Use `/.github/copilot-instructions.md` inside each real repository.
 
-## How to work in this repository
-- Start by understanding the relevant files before proposing changes.
-- For complex tasks, explain a plan before writing code.
-- Prefer small and reviewable changes.
-- Reuse existing patterns before creating new ones.
-- Explain how to validate the proposed change.
+This is the most portable baseline to present for Copilot because support is broader and easier to explain than more advanced instruction layers.
 
-## Quality rules
-- Respect the current architecture and folder structure.
-- Follow the existing naming conventions.
-- Do not change unrelated files.
-- Call out assumptions and risks clearly.
+Suggested scope:
+- working method
+- architecture reminders
+- contract rules
+- verification commands
+- hard limits
 
-## Verification
-- Suggest the relevant tests for the change.
-- Mention lint or build checks when relevant.
-```
+## Complementary agent guidance
 
-## File 2. `.github/instructions/backend.instructions.md`
+Use `AGENTS.md` as a complementary layer, especially for agent workflows and CLI usage.
 
-```md
+Position it as:
+- useful
+- valid
+- already part of the real setup
+- not a substitute for a clear repository-wide Copilot baseline
+
+In this case, this means:
+- backend keeps its existing `AGENTS.md` guidance
+- frontend also has repository-level guidance instead of remaining empty
+- the workspace-level `AGENTS.md` is routing guidance, not the main Copilot baseline
+
+## Optional path-specific instructions
+
+Use `.github/instructions/*.instructions.md` only where:
+- the Copilot surface supports them
+- the repository shape really benefits from them
+- the extra complexity is justified
+
+Do not make these files the center of the presentation.
+
+## Precedence and support notes
+
+- For supported Copilot surfaces, path-specific instructions in `.github/instructions/**/*.instructions.md` take precedence over `.github/copilot-instructions.md`.
+- Repository-wide `.github/copilot-instructions.md` takes precedence over agent instruction files such as `AGENTS.md`.
+- `AGENTS.md` is still useful, especially for agent workflows, but it should not replace the repository-wide Copilot baseline in the presentation.
+- Support is not identical across all Copilot surfaces. The safest baseline to present first is `.github/copilot-instructions.md` inside each real repository.
+
 ---
-applyTo: "src/backend/**/*.ts,src/api/**/*.ts"
+
+# Copilot CLI usage notes
+
+## What good prompting looks like
+
+Good prompts usually include:
+- a clear goal
+- relevant context
+- constraints
+- expected output
+- one small next step
+
+## What bad prompting looks like
+
+Bad prompts usually fail because they:
+- are vague
+- ask for too much in one step
+- omit verification
+- omit ownership boundaries
+- do not define success
+
+## The commands that matter most
+
+The most useful day-to-day Copilot CLI patterns are:
+- normal conversation for scoped questions
+- `/plan` for complex or risky work
+- `/review` for feedback before merge
+- skills for repeatable specialist tasks
+- custom agents and subagents for specialization or delegation
+
+## How to explain skills, agents, and subagents
+
+- Skills help Copilot perform specialized repeatable tasks.
+- Custom agents let Copilot use a specialized role.
+- Subagents let the main agent delegate part of the work.
+- These are useful when the problem justifies them, not as a default for every task.
+
 ---
 
-# Backend rules
-- Use existing controllers, services, and validation patterns.
-- Keep API changes explicit.
-- Avoid large refactors unless requested.
-- Keep changes small and easy to review.
-```
+# Copilot Enterprise explanation notes
 
-## File 3. `.github/instructions/frontend.instructions.md`
+## What Enterprise changes
 
-```md
----
-applyTo: "src/frontend/**/*.ts,src/frontend/**/*.tsx,src/ui/**/*.tsx"
----
+Copilot Enterprise or enterprise-level governance matters because it can control:
+- access to Copilot
+- enabled features
+- model availability
+- some GitHub-based agent capabilities
+- code review and pull request summary features where enabled
+- organization or enterprise-level usage visibility
 
-# Frontend rules
-- Reuse existing UI components and styling patterns.
-- Keep state changes simple and predictable.
-- Avoid unnecessary visual changes.
-- If a change affects UX, explain it clearly.
-```
+## What Enterprise does not replace
 
-## File 4. `AGENTS.md`
+Enterprise does not replace:
+- repository architecture rules
+- frontend and backend contract rules
+- implementation conventions
+- verification expectations
+- prompt quality or task scoping
 
-```md
-# Agent guidance
+## How to explain this simply
 
-- Read repository instructions before proposing changes.
-- For complex work, suggest a plan first.
-- Keep changes focused and easy to review.
-- Explain verification steps before finalizing.
-- Raise risks, assumptions, and open questions clearly.
-```
+Use this formula:
+
+> Enterprise decides what is allowed and available.
+> The repositories decide how Copilot should work in our code.
+> The team workflow decides how we use it responsibly.
 
 ---
 
 # Recommended rollout path
 
-## Phase 1. Organization baseline
-- Enable GitHub Copilot for the right teams first.
-- Review organization policies, features, and model access.
-- Confirm who will own rollout, governance, and reporting.
+## Phase 1. Enterprise and organization baseline
+- Confirm access, policies, enabled features, and model availability.
+- Decide which GitHub-based agent capabilities are allowed.
+- Review what usage data is actually available and where its coverage is limited.
 
 ## Phase 2. Repository baseline
-- Add `.github/copilot-instructions.md` to pilot repositories.
-- Add path-specific instruction files only where useful.
-- Add `AGENTS.md` if the team will use more agent-style CLI workflows.
+- Keep repository-wide Copilot instructions in each real repository.
+- Keep `AGENTS.md` where it adds value.
+- Add path-specific instructions only when they solve a clear problem.
 
 ## Phase 3. Team workflow
-- Teach the team to use `/plan` for complex tasks.
-- Align on review, verification, and PR expectations.
-- Ask people to keep sessions focused.
+- Standardize prompting, planning, verification, and review habits.
+- Teach the team when to use `/plan`, `/review`, skills, and delegation.
+revis- Use real frontend and backend tasks to reinforce the pattern.
 
 ## Phase 4. Adoption review
-- Review usage and adoption metrics.
-- Collect team feedback.
-- Improve instructions where results are unclear.
-
-## Phase 5. Controlled expansion
-- Review whether other AI tools are still needed.
-- If yes, define governance before enabling them broadly.
-- Keep Copilot as the shared base unless there is a strong reason not to.
-
----
-
-# Should the presentation be generic or project-specific?
-
-## Recommendation
-Use a **generic base presentation** with **small project-specific touches**.
-
-## Best balance
-- 80% generic
-- 20% adapted
-
-## Keep generic
-- what Copilot is
-- control layers
-- organization vs repository setup
-- workflow
-- guardrails
-- multi-tool policy
-- next steps
-
-## Adapt when needed
-- repo folder names in examples
-- one real example in Demo 1
-- one real example in Demo 2
-- next steps for the current repository
-
-This keeps the deck reusable while still making it feel relevant.
-
----
-
-# Appendix: Copilot, Codex, and Claude
-
-## GitHub Copilot and Copilot CLI
-Use this as the standard first layer when the organization wants:
-- one main governance path
-- one main adoption path
-- one main metrics path
-- shared repository instructions
-
-## Codex or Claude on GitHub
-These can be considered later for controlled cases where the organization wants third-party coding agents working through GitHub workflows.
-
-Important practical message for the presentation:
-- allowing them is possible
-- allowing them is not the same as standardizing them
-- they should be treated as a later governance decision
-
-## Local tools outside the GitHub control path
-If people use local tools, the organization must assume:
-- different configuration files
-- different permissions models
-- different approval flows
-- more operational drift
-
-That does not automatically mean “do not allow them”.
-It means “do not confuse them with one shared governed standard”.
-
----
-
-# Source validation appendix
-
-This section is for your own notes, not for slide text.
-
-Key points used in this document were checked against official documentation from:
-- GitHub Docs for organization setup, Copilot CLI best practices, repository custom instructions, content exclusion, metrics, and third-party agents
-- OpenAI Codex documentation for `AGENTS.md` and Codex configuration patterns
-- Anthropic Claude Code documentation for local configuration and permission models
-
-## Main facts that should remain explicit in the presentation
-
-1. **Organization custom instructions do not cover Copilot CLI.**
-   GitHub documents organization custom instructions for some GitHub.com surfaces, not Copilot CLI.
-
-2. **Content exclusion does not support Copilot CLI.**
-   GitHub explicitly says Copilot CLI is not covered by content exclusion.
-
-3. **GitHub can enable Codex and Claude as third-party agents on GitHub, but that does not govern local tools.**
-   GitHub also says those policies do not apply to local agents in Visual Studio Code.
-
-4. **Repository instruction files are the real baseline for Copilot CLI behavior.**
-   That is why the repository baseline is central to the rollout plan.
-
----
-
-# Final recommendation
-
-If you need one clear message for the presentation, use this:
-
-**First standardize GitHub Copilot and Copilot CLI with a small repository baseline and a shared team workflow. Then review whether other AI tools are needed in controlled cases.**
-
-That is the most practical, reusable, and defensible approach for a team starting from zero.
+- Review whether Enterprise policy, repository baseline, and team workflow are aligned.
+- Expand only where repeated problems appear.
+- Reassess mixed-tool use only after the Copilot baseline is stable.

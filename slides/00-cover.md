@@ -53,11 +53,9 @@ layout: none
 <!--
 Hi everyone, I'm José Miguel Torres.
 
-AI is already part of how we work every day and that is not going to change.
+AI is already part of our daily work.
 
-The question is not whether we use it. The question is how we use it well as a team.
+Today I want to focus on how we use GitHub Copilot more consistently as a team.
 
-Today I want to show you that with a few simple steps we can be significantly more productive.
-
-Shared setup, shared workflow, and guardrails that let us move fast without losing control.
+Shared setup, shared workflow, and guardrails that help us move faster without losing control.
 -->
