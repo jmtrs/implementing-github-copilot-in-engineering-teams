@@ -16,7 +16,7 @@
       <ul class="panel-list panel-list--bright">
         <li>Inspects auth hook, button component, existing patterns</li>
         <li>Asks clarifying questions before writing</li>
-        <li>Generates a plan — review, approve, execute one step</li>
+        <li>Generates a plan: review, approve, execute one step</li>
       </ul>
     </div>
   </div>

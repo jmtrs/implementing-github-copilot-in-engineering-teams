@@ -52,11 +52,11 @@ layout: none
 </style>
 
 <!--
-Hi everyone, I'm José Miguel Torres.
+Hi everyone, let's start this presentation, I'm José Miguel Torres and we are going to talk about Copilot.
 
 AI is already part of our daily work.
 
-Today I want to focus on how we use GitHub Copilot more consistently as a team.
+Today I want to focus on how we use GitHub Copilot as a team.
 
-Shared setup, shared workflow, and guardrails that help us move faster without losing control.
+Shared setup, shared workflow, and guardrails that improve our productivity 
 -->

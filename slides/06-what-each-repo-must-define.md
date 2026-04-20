@@ -106,7 +106,7 @@ That includes its architecture, how contracts are owned, and how changes are val
 
 Path-specific instructions let each side of the workspace define its own rules without duplication.
 
-And verification commands must be real commands in the file, not just tool names.
+And verification commands must be real commands in the file, to be executed by Copilot.
 
-This is where Copilot becomes project-aware.
+Let's see it in our project.
 -->

@@ -50,11 +50,11 @@ layout: none
 <!--
 This slide breaks the rollout into three control layers.
 
-At the enterprise or organization layer, we define policy and access.
+At the organization layer, we define policy and access.
 
 At the repository layer, we define the shared rules for engineering work.
 
 And at the local tool and user environment layer, execution context shapes how people actually use Copilot day to day.
 
-That is why these layers need to work together, not separately.
+That is why these layers need to work together.
 -->

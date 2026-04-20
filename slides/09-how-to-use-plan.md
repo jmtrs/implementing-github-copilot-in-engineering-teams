@@ -45,7 +45,7 @@ We are going to run this demo live.
 
 The scenario is a login button with no visual feedback — the user clicks and nothing happens until the response comes back.
 
-We will run the same task twice: first with a direct prompt, then with /plan.
+We will run this task with /plan.
 
 With /plan, we also tell Copilot to ask if it has doubts before implementing -that is the Socratic mode.
 

@@ -75,11 +75,9 @@ layout: none
 </style>
 
 <!--
-AI is already part of development work.
+The question here is not how to access to AI tools,
 
-The question now is not access.
-
-The question is how we use it well as a team.
+The question is how we can use them consistently.
 
 If each person uses Copilot with a different approach, we get drift, review noise, and uneven quality.
 

@@ -44,11 +44,11 @@ layout: none
 </style>
 
 <!--
-At enterprise and organization level, GitHub gives us a real control surface.
+GitHub gives us a real control surface.
 
 We can manage access, define policies, control model availability, and decide which GitHub-native AI capabilities are allowed.
 
-In GitHub Docs, this lives under AI controls, including Policies, Models, Agents, MCP, and metrics.
+This lives under AI controls, including Policies, Models, Agents, MCP, and metrics.
 
 For example, enterprise owners can define policies centrally or delegate them to organization owners.
 
@@ -56,5 +56,5 @@ Policies are grouped into feature, privacy, and models.
 
 Cloud agent and MCP are controlled in the AI controls area, and usage visibility comes from dashboards and APIs.
 
-That visibility is useful, but it is not complete across every surface.
+That visibility is useful, but it is not complete without local tooling and user environment controls.
 -->

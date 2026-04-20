@@ -336,83 +336,140 @@ Suggested speaking notes:
 
 ---
 
-## Slide 10. How to use review and verification
+## Slide 10. How to use /review
 
 ### Slide title
-**How to use review and verification well**
+**How to use /review**
 
-### Slide text
-- Ask for review before merge
-- Verify the relevant files and commands
-- Ask for limits, risks, and gaps
-- Iterate in small steps
+### Design notes
+Visual and minimalist. Command list layout — same pattern as slide 08.
+Left column: command (code). Right column: what it does (muted text).
+No bullets, no panels. Just commands and descriptions.
+
+### Slide text — command list
+
+| Command | What it does |
+|---|---|
+| `/diff` | see exactly what changed in the current directory |
+| `/review` | analyze changes before committing — default criteria |
+| `/review "focus on security"` | guided review with custom instructions |
+
+### Workflow (speaker-facing, not on slide)
+1. Make a change
+2. `/diff` — see what changed
+3. `/review` or `/review "focus on X"` — Copilot analyzes
+4. Accept or decline its suggestions interactively
+5. Implement feedback, then commit
 
 ### Presenter notes
-This should reinforce engineering discipline.
+Copilot should not be the last reviewer of its own work. /review gives quick feedback before you commit. You can guide it with a custom prompt — focus on security, contracts, or what was not tested.
 
 Suggested speaking notes:
 
-> Copilot should not be the last reviewer of its own work. Ask for review, ask what was verified, ask what looks risky, and keep the loop small. The point is not speed alone. The point is controlled speed.
+> After you implement something with /plan, run /review before you commit. No prompt needed — Copilot analyzes your changes by default. But you can guide it: focus on security, on contract changes, on what was not verified. The point is not speed alone. The point is controlled speed.
 
 ---
 
-## Slide 11. Skills, custom agents, and subagents
+## Slide 11. Skills and custom agents
 
 ### Slide title
-**Skills, custom agents, and subagents**
+**Skills and custom agents**
 
-### Slide text
-- Skills for repeatable specialist tasks
-- Custom agents for specialized roles
-- Subagents for delegation and parallel work
-- Use them when complexity justifies them
+### Design notes
+50/50 split layout. Two columns, each a self-contained block.
+Left block: Skills. Right block: Custom agents.
+Each block has a label at the top, one or two commands in code style, a one-line description, and a muted "where it lives" path at the bottom.
+No shared command list — two distinct visual units side by side.
+Thin vertical divider between them.
+Closing line below both columns: "Both live in the repository — the team shares them."
+
+### Left block — Skills
+Label: `skills`
+Commands:
+- `/skills list` — see what is available
+- `/generate-tests "..."` — invoke by name
+
+Description: repeatable instruction packages — define once, invoke anywhere
+Where it lives: `.github/skills/SKILL.md`
+
+### Right block — Custom agents
+Label: `agents`
+Commands:
+- `/agent "..."` — open the agent selector
+- `Use the security-auditor agent to check ...` — explicit invocation
+
+Description: full personas — own tools, model, and behavioral scope
+Where it lives: `.github/agents/<name>.agent.md`
 
 ### Presenter notes
-Keep this concrete and anti-hype.
+Keep this concrete and anti-hype. Skills are instruction packages for repeatable tasks. Custom agents are full personas with their own tools, model, and scope.
 
 Suggested speaking notes:
 
-> Skills help with repeatable specialist tasks. Custom agents let Copilot use more specialized roles. Subagents help delegate and parallelize parts of the work. These are useful when complexity justifies them. They are not things we need to force into every task.
+> Skills are repeatable instruction packages. You define them once and invoke them by name. Custom agents are fuller personas — they have their own tools, model configuration, and behavioral scope. Both live in the repository, which means the team shares them. Use them when a task is specialist enough to justify a dedicated pattern.
 
 ---
 
-## Slide 12. What quality and safety mean here
+## Slide 12. Subagents
 
 ### Slide title
-**What quality and safety mean here**
+**Subagents — fleet and delegate**
 
-### Slide text
-- Keep routes thin
-- Use parameterized SQL only
-- Use `projectId`, not `scopeId`
-- Keep frontend and backend contracts aligned
+### Design notes
+Two large focal items, centered, stacked vertically with generous spacing.
+No command-list table. Each item takes the full width with its command prominent and the description below it as a single muted line.
+Think: editorial, sparse, one idea per visual unit.
+
+Item 1:
+- Command (large, code): `/fleet "..."`
+- Description (muted, below): parallel subtasks — each agent runs in its own isolated context
+
+Item 2:
+- Command (large, code): `/delegate "..."`
+- Description (muted, below): async cloud handoff — commits to a new branch, opens a draft PR
+
+Closing line at the bottom, centered, very muted:
+"Premium request cost scales with parallelism — use when the task justifies it."
 
 ### Presenter notes
-This slide lands better after the CLI block.
+These are the most powerful — and the most expensive in terms of premium requests. /fleet is for large decomposable tasks. /delegate is for async work you want to hand off completely.
 
 Suggested speaking notes:
 
-> After we teach the workflow, we can make the guardrails concrete. In this case, thin routes matter. Parameterized SQL matters. The payload convention matters. Contract alignment matters. These are not generic AI rules. These are the rules that keep this workspace safe and maintainable.
+> /fleet breaks your task into independent subtasks and runs them in parallel, each with its own agent and context window. /delegate goes further — it hands the work off to the cloud agent entirely, which runs async, commits to a new branch, and opens a draft PR. Both are useful when the task is large and complex enough. Neither is something you use on every ticket.
 
 ---
 
-## Slide 13. Demo 2 and next steps
+## Slide 13. Demo 2: Agents and fleet
 
 ### Slide title
-**Demo 2 and next steps**
+**Agents and fleet**
 
-### Slide text
-- Use one small cross-layer task
-- Review ownership and contract impact
-- Verify before closing
-- End with explicit team next steps
+### Design notes
+Same pattern as slide 09 (Demo 1 intro): SlideHeading with kicker + title, a brief setup block, and a closing "Let's try it." line.
+The setup block shows two lines of context: the two agent files already in the repo, so the audience understands what exists before the demo runs.
+
+Kicker: `Live demo 02`
+Title: `Agents and fleet`
+
+Setup block (muted, below title):
+```
+.github/agents/test-writer.agent.md
+writes Jest + Supertest tests for a route
+
+.github/agents/sql-reviewer.agent.md
+reviews SQL in model files for injection risks
+```
+
+Closing line (large, same weight as slide 09):
+`Let's fleet them.`
 
 ### Presenter notes
-This is the end-to-end workflow demo and the explicit close.
+This demo has two parts: show the agent files exist in the repo, then run /fleet to delegate both tasks in parallel. The audience should see that agents are just markdown files — and that /fleet runs both simultaneously.
 
 Suggested speaking notes:
 
-> The second demo should show one realistic task across repository boundaries. We check ownership, keep the step small, verify the result, and close with the next team steps we want to standardize. That is the operating model we want people to remember.
+> We have two agents already in the repo. One writes integration tests. The other reviews SQL for injection risks. Both are markdown files in .github/agents — the whole team has them. Now we run /fleet and delegate both tasks at the same time. Each agent runs in its own context. Neither one blocks the other.
 
 ---
 
@@ -445,39 +502,50 @@ Walk through what Copilot does:
 
 ---
 
-## Demo 2. One real workflow end to end
+## Demo 2. Agents and fleet on a real backend route
 
 ### Goal
-Show the daily operating model for a small cross-layer task.
+Show how custom agents are just markdown files in the repo, and how `/fleet` delegates two independent tasks to them in parallel — without the presenter waiting for one to finish before starting the other.
 
-### Suggested flow
-1. Start from repository rules, not from a blank prompt.
-2. Identify the owning backend and frontend files.
-3. Ask for one small implementation step.
-4. Ask for verification or `/review`.
-5. Summarize remaining risks or gaps.
+### Setup (before the demo)
+Two agent files already exist in `BIM2GO_backend/.github/agents/`:
 
-### Suggested CLI prompt
+- `test-writer.agent.md` — reads the existing test patterns in `test/`, then writes a Jest + Supertest integration test for the route under review.
+- `sql-reviewer.agent.md` — reads a model file in `db/` and flags SQL queries that are not parameterized, classified as HIGH / MEDIUM / INFO.
 
-```text
-/plan Update one API payload field used by a frontend service wrapper.
-Check the owning backend route and model first.
-Then identify the frontend wrapper that must stay aligned.
+Open both files briefly before running the demo — the audience should see that an agent is just a markdown file with a name, a tool list, and clear instructions.
+
+### Demo flow
+
+Step 1 — show the agent files:
+```
+cat .github/agents/test-writer.agent.md
+cat .github/agents/sql-reviewer.agent.md
+```
+Point out: name, tools, instructions. "This is the whole agent."
+
+Step 2 — run /fleet:
+```
+/fleet "Review db/card.model.js for SQL safety AND write integration tests for the card routes. Run both tasks in parallel."
 ```
 
-Then continue with:
+Walk through what happens:
+- Copilot spawns two agents simultaneously
+- `sql-reviewer` reads `db/card.model.js` and reports findings (HIGH / MEDIUM / INFO)
+- `test-writer` reads `routes/card.routes.js` + existing test patterns, writes `test/card.test.js`
+- Both complete independently — no waiting
 
-```text
-Implement one small step only.
-After that, run the relevant verification and explain any remaining risk.
-```
+Step 3 — show the outputs:
+- Review the SQL report: pick one HIGH or MEDIUM finding and explain it
+- Open `test/card.test.js`: point out that it follows the project's existing patterns
+- Run `npm test` to show the generated tests are valid
 
 ### What to explain after the demo
-- We start from repository rules.
-- We check ownership and contract impact first.
-- We keep the task small.
-- We verify before closing.
-- This is the repeatable pattern the team should adopt.
+- The agents live in the repo — the whole team shares them from day one.
+- `/fleet` is not magic. It is controlled parallelism with scoped agents.
+- You define the agent once. You invoke it by name forever.
+- The SQL reviewer finds what code review under time pressure misses.
+- The test writer does not replace the engineer — it gives a starting point that already follows the project's patterns.
 
 ---
 
@@ -612,8 +680,3 @@ Use this formula:
 - Standardize prompting, planning, verification, and review habits.
 - Teach the team when to use `/plan`, `/review`, skills, and delegation.
 revis- Use real frontend and backend tasks to reinforce the pattern.
-
-## Phase 4. Adoption review
-- Review whether Enterprise policy, repository baseline, and team workflow are aligned.
-- Expand only where repeated problems appear.
-- Reassess mixed-tool use only after the Copilot baseline is stable.

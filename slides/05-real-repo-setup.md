@@ -34,9 +34,11 @@ layout: none
 </style>
 
 <!--
+Let's talk about them.
+
 In our case, our working workspace has a frontend repository and a backend repository.
 
-The Copilot baseline lives in the real repositories where the code and Git history live.
+Copilot lives in the repositories because that's where the code is.
 
-Repository-wide copilot-instructions.md gives the most portable Copilot baseline, and AGENTS.md helps, especially for agent workflows.
+Repository-wide copilot-instructions.md gives us the most portable Copilot configuration, and AGENTS.md helps, especially for agent workflows.
 -->

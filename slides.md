@@ -36,4 +36,17 @@ src: ./slides/08-cli-patterns.md
 ---
 src: ./slides/09-how-to-use-plan.md
 ---
+# slide 10 pending: 10-how-to-use-review.md
+---
+src: ./slides/11-skills-and-custom-agents.md
+---
+---
+src: ./slides/12-subagents.md
+---
+---
+src: ./slides/13-demo-agents-fleet.md
+---
+---
+src: ./slides/14-closing.md
+---
 

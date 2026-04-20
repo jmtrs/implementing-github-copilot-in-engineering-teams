@@ -24,7 +24,6 @@ layout: none
       :start-delay="0.86"
       :step="0.22"
     />
-    <p class="deck-note fade-up practical-note" style="animation-delay:1.46s">Rollout is not one switch. It is a system we shape on purpose.</p>
   </div>
 </DeckFrame>
 
@@ -37,7 +36,8 @@ layout: none
 <!--
 Copilot is not only autocomplete.
 
-In practice, it works through the context it sees, the instructions it receives, the policies that enable or disable features, and the workflow we expect people to follow.
+In practice, it works through the context it sees, the instructions that receives, 
+the policies that enable or disable features, and the workflow we expect people to follow.
 
 The result depends on the environment we create around it.
 

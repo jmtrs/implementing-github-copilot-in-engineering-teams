@@ -20,7 +20,7 @@ layout: none
     </li>
     <li class="cli-item fade-up" style="animation-delay: 0.64s">
       <code class="cli-cmd">/plan</code>
-      <span class="cli-desc">let Copilot inspect before coding — for complex or risky work</span>
+      <span class="cli-desc">let Copilot inspect before coding, for complex or risky work</span>
     </li>
     <li class="cli-item fade-up" style="animation-delay: 0.78s">
       <code class="cli-cmd">/review</code>
@@ -93,7 +93,7 @@ layout: none
 </style>
 
 <!--
-The Copilot CLI patterns.
+Copilot CLI patterns.
 
 We need to know a few patterns to help us work better with Copilot.
 
@@ -105,7 +105,7 @@ Normal conversation for scoped questions.
 
 Skills for repeatable tasks. 
 
-Agents when the problem is big enough to delegate.
+And agents when the problem is big enough to delegate.
 
-Let's take a look at each of these patterns.
+Let's take a look to some of these patterns.
 -->
