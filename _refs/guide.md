@@ -17,14 +17,14 @@ This version assumes:
 - the team already works with two coordinated repositories from one parent workspace
 - the minimum Copilot baseline is already configured in the real repositories
 - `/.github/copilot-instructions.md` exists in both frontend and backend
-- `AGENTS.md` still exists as complementary guidance
+- `AGENTS.md` exists as complementary guidance
 - the audience already uses Copilot, but not always well
 - the examples should be derived from a real project shape without naming the product
 
 The structure includes:
 - presentation title
 - presentation goal
-- 18-slide deck outline
+- 14-slide deck outline
 - presenter notes
 - 2 demo sections
 - recommended repository baseline
@@ -48,7 +48,7 @@ The goal is to explain:
 
 ---
 
-# 18-slide presentation structure
+# 14-slide presentation structure
 
 ---
 
@@ -58,18 +58,22 @@ The goal is to explain:
 **Why this needs a shared AI operating model**
 
 ### Slide text
+- `The problem is not access. The problem is using Copilot with one shared standard.`
 - AI is already part of development work.
 - Many teams already use Copilot, but not always in the same way.
-- Without one shared model, we get drift, review noise, and inconsistent results.
+- Without one shared model, AI adoption creates drift, review noise, and uneven quality.
 
 ### Presenter notes
 This slide should frame the talk around behavior, not tooling alone.
 
 ### Animation / Design
-- Keep this slide simple.
-- Use one title fade-up on entry.
-- Reveal the bullets with a short staggered entrance.
-- Do not add extra visual elements or complex motion.
+- Use an editorial split layout.
+- Put the title block on the left and the explanatory copy on the right.
+- Keep the left side visually dominant, but let the right side carry the practical framing.
+- Above the bullets, include one short intro sentence:
+  - `The problem is not access. The problem is using Copilot with one shared standard.`
+- Reveal the title first, then the intro, then the bullets with a short staggered entrance.
+- Keep the motion restrained and avoid decorative diagrams.
 
 Suggested speaking notes:
 
@@ -85,7 +89,7 @@ Suggested speaking notes:
 ### Slide text
 - Copilot is not only autocomplete.
 - It works through context, instructions, policies, and workflow.
-- Enterprise, repository, and local usage all shape the result.
+- The result depends on the environment we create around it.
 
 ### Presenter notes
 Keep this practical and not product-marketing.
@@ -93,17 +97,21 @@ Keep this practical and not product-marketing.
 ### Animation / Design
 - Use a split 50/50 layout.
 - Put the visual on the left and the text on the right.
-- The left side should use a real-looking coding image, not a diagram.
-- Recommended visual: an editor with Copilot visibly completing or suggesting code inline.
-- The image should feel real and legible at a glance, without too much small text.
+- The left side should use a real-looking coding scene, not a diagram.
+- Recommended visual: an editor with a short inline suggestion and a minimal terminal footer.
+- The coding example should feel like a real task flow, not a fake product mockup.
+- A good example is a small validation flow with an inline completion and a subtle Copilot CLI command in the terminal.
+- The image should feel real and legible at a glance, without too much small text or decorative UI.
 - Avoid admin settings, dashboards, or configuration screens.
 - Animate the image first with a soft fade-in.
 - Then reveal the text on the right with a short staggered entrance.
 - Keep the motion clean and restrained.
+- Add a short closing note under the bullets:
+  - `Rollout is not one switch. It is a system we shape on purpose.`
 
 Suggested speaking notes:
 
-> Copilot is not only autocomplete. In practice, it works through the context it sees, the instructions it receives, the policies that enable or disable features, and the workflow we expect people to follow. So rollout is not one switch. It is a stack of decisions.
+> Copilot is not only autocomplete. In practice, it works through the context it sees, the instructions it receives, the policies that enable or disable features, and the workflow we expect people to follow. The result depends on the environment we create around it. So rollout is not one switch. It is a system we shape on purpose.
 
 ---
 
@@ -113,26 +121,33 @@ Suggested speaking notes:
 **Three control layers**
 
 ### Slide text
-- Enterprise or organization
-- Repository
-- Local tool and user environment
+- `Rollout only works when these three layers reinforce each other.`
+- `Enterprise / organization` — `policy and access`
+- `Repository` — `shared rules`
+- `Local tool and user environment` — `execution context`
 
 ### Presenter notes
 This slide explains why rollout is never only an admin setting.
 
 ### Animation / Design
-- Use a split 50/50 layout.
-- Put the text on the left and the visual on the right.
-- The right side should use a clear vertical diagram.
-- Recommended visual: three stacked layers showing Enterprise or organization, Repository, and Local tool and user environment.
-- The diagram should feel structured and easy to read, not decorative.
-- Animate the diagram in sequence from top to bottom.
-- Then reveal the text on the left with a short staggered entrance.
-- Keep the motion restrained and clean.
+- Do not use a 50/50 layout.
+- Use a centered editorial composition.
+- Put the title and one short framing sentence at the top center.
+- Below, use three horizontal blocks aligned in one row:
+  - `Enterprise / organization`
+  - `Repository`
+  - `Local tool and user environment`
+- Each block should include a short function label:
+  - `policy and access`
+  - `shared rules`
+  - `execution context`
+- The three blocks should feel like one system, not three unrelated cards.
+- Keep the motion minimal: title first, framing sentence second, then the three blocks.
+- This slide should prepare Slide 4 as a zoom into the enterprise layer.
 
 Suggested speaking notes:
 
-> We need to separate three layers. Enterprise or organization controls access and policy. The repository controls shared working rules. The local tool and user environment still matter, especially when people use terminals, agents, or other AI tools outside one standard path.
+> We need to separate three layers. Enterprise or organization controls policy and access. The repository controls shared engineering rules. The local tool and user environment matter because that is where execution happens. This layered view helps us see what belongs to governance, what belongs to the repo, and what depends on daily usage.
 
 ---
 
@@ -142,81 +157,79 @@ Suggested speaking notes:
 **What Enterprise and the organization control**
 
 ### Slide text
-- Access, features, policies, and model choices
-- GitHub-based review and agent capabilities
-- Metrics and visibility, with uneven coverage by surface
+- `Enterprise / Organization AI Controls`
+- `Access` — `seat assignment and org-level delegation`
+- `Policies & models` — `feature, privacy, and model controls`
+- `GitHub-native AI surfaces` — `cloud agent, code review, MCP`
+- `Visibility` — `metrics dashboards and APIs`
+- `set centrally or delegated to organization owners`
 
 ### Presenter notes
-This compresses the governance story into one slide.
+This slide should work as a control map, not as a feature list or an admin slide.
+
+It should be grounded in GitHub Docs:
+- enterprise owners can define policies centrally or delegate decisions to organization owners
+- Copilot policies are grouped into feature, privacy, and models
+- AI controls include Copilot, agents, and MCP
+- usage metrics provide visibility, but not with full coverage across every surface
+
+### Animation / Design
+- Do not use a 50/50 layout.
+- Use a full-slide visual map with one central control node and four surrounding domains.
+- Central node: `Enterprise / Organization AI Controls`
+- Surrounding domains:
+  - `Access`
+  - `Policies & models`
+  - `GitHub-native AI surfaces`
+  - `Visibility`
+- Each domain should use one real example of what is controlled:
+  - `seat assignment and org-level delegation`
+  - `feature, privacy, and model controls`
+  - `cloud agent, code review, MCP`
+  - `metrics dashboards and APIs`
+- Add one small location hint inside each domain or as microcopy where useful:
+  - `AI controls`
+  - `Policies / Models`
+  - `Agents / MCP`
+  - `Dashboard / API`
+- Add one small governance note:
+  - `set centrally or delegated to organization owners`
+- Do not use settings screens, admin pages, or dashboard screenshots.
+- The slide should feel like a system map of control surfaces, not a feature list or abstract diagram.
+- Keep the title compact and secondary to the map.
+- Use a centered and symmetric composition: central node in the middle, four domains in a square around it.
+- Keep connectors minimal and only if they improve readability.
+- Animate the central node first, then reveal the four domains around it.
 
 Suggested speaking notes:
 
-> At enterprise and organization level, we can decide who gets access, which features are enabled, which models are available, and whether some GitHub-based agent capabilities are allowed. We can also review usage data, but we should be careful because metrics do not cover every Copilot surface in the same way.
+> At enterprise and organization level, GitHub gives us a real control surface. We can manage access, define policies, control model availability, and decide which GitHub-native AI capabilities are allowed. In GitHub Docs, this lives under AI controls, including Policies, Models, Agents, MCP, and metrics. Enterprise owners can define policies centrally or delegate them to organization owners. Policies are grouped into feature, privacy, and models. Cloud agent and MCP are controlled in the AI controls area, and usage visibility comes from dashboards and APIs. That visibility is useful, but it is not complete across every surface. So this layer matters, but it defines the operating envelope more than the day-to-day engineering workflow.
 
 ---
 
-## Slide 5. What Enterprise does not solve
+## Slide 5. What an AI repo setup looks like
 
 ### Slide title
-**What Enterprise does not solve**
-
-### Slide text
-- Repository architecture
-- Frontend and backend contracts
-- Prompt quality and task scoping
-- Verification expectations for real changes
-
-### Presenter notes
-This slide prevents an admin-only interpretation.
-
-Suggested speaking notes:
-
-> Enterprise gives us policy and control, but it does not solve repository-level engineering questions. It does not know our contracts, our ownership model, our preferred task size, or what counts as enough verification. Those things still belong to the repositories and to the team workflow.
-
----
-
-## Slide 6. What a real repo setup looks like
-
-### Slide title
-**What a real repo setup looks like**
+**What an AI repo setup looks like**
 
 ### Slide text
 - Two real repositories coordinated from one parent workspace
 - Repository-wide Copilot baseline already configured
-- `AGENTS.md` still useful as complementary guidance
+- `AGENTS.md` is useful as complementary guidance
 
 ### Presenter notes
 This is where the case study becomes concrete.
 
 Suggested speaking notes:
 
-> In our case, the right mental model is not one physical monorepo. It is one working workspace with a frontend repository and a backend repository. The Copilot baseline lives in the real repositories where the code and Git history live. Repository-wide `copilot-instructions.md` gives the most portable Copilot baseline, and `AGENTS.md` still helps, especially for agent workflows.
+> In our case, our working workspace has a frontend repository and a backend repository. The Copilot baseline lives in the real repositories where the code and Git history live. Repository-wide copilot-instructions.md gives the most portable Copilot baseline, and AGENTS.md helps, especially for agent workflows.
 
 ---
 
-## Slide 7. The baseline we assume is already mounted
+## Slide 6. What each repository must define
 
 ### Slide title
-**The baseline we assume is already mounted**
-
-### Slide text
-- `/.github/copilot-instructions.md` in each real repository
-- `AGENTS.md` as complementary guidance
-- Path-specific rules only where they add real value
-
-### Presenter notes
-This slide should make the setup feel already solved.
-
-Suggested speaking notes:
-
-> We are not spending this talk on bootstrap. We assume the minimum baseline is already mounted. In practice, that means repository-wide Copilot instructions in each real repo, plus `AGENTS.md` as complementary guidance. Path-specific instructions are optional and should only appear where they solve a real problem.
-
----
-
-## Slide 8. What each repository still must define
-
-### Slide title
-**What each repository still must define**
+**What each repository must define**
 
 ### Slide text
 - Shared rules for the code it owns
@@ -228,16 +241,23 @@ Keep this centered on engineering reality.
 
 Suggested speaking notes:
 
-> Even with Enterprise in place, each repository still needs to define the rules that matter in that codebase. That includes its architecture, how contracts are owned, and how changes are validated. This is where Copilot becomes project-aware instead of generic.
+> Even with Enterprise in place, each repository needs to define the rules that matter in that codebase. That includes its architecture, how contracts are owned, and how changes are validated. This is where Copilot becomes project-aware instead of generic.
 
 ---
 
-## Slide 9. What good prompting looks like
+## Slide 7. Bad prompts vs good prompts
 
 ### Slide title
-**What good prompting looks like**
+**Bad prompts vs good prompts**
 
 ### Slide text
+- `Bad prompting`
+- Vague ask
+- Too much scope
+- No success criteria
+- No verification
+- No ownership boundary
+- `Good prompting`
 - Clear goal
 - Relevant context
 - Constraints and limits
@@ -245,36 +265,29 @@ Suggested speaking notes:
 - One small next step
 
 ### Presenter notes
-This is the first slide of the practical block.
+This slide should open the practical block through contrast, not through two separate explanations.
 
 Suggested speaking notes:
 
-> Good prompting is not about sounding clever. It is about giving Copilot the right shape of task. A good prompt says what the goal is, what context matters, what constraints apply, what kind of output we want, and what the next step should be. The smaller and clearer the first step, the better the result.
+> On the left is the pattern that usually produces weak results. The ask is vague, the scope is too large, there is no clear success criteria, no verification step, and no ownership boundary. On the right is the same task shaped properly. The goal is clear, the relevant context is included, constraints are explicit, the expected output is defined, and the next step is small enough to execute well. The point is simple: the tool usually reflects the shape of the task we give it.
+
+### Animation / Design
+- Do not split this into two separate slides.
+- Use one full-width comparison slide.
+- Left side:
+  - `Bad prompting`
+  - visually heavier, less stable, slightly uncomfortable
+- Right side:
+  - `Good prompting`
+  - cleaner, calmer, more structured
+- The comparison should read in 2-3 seconds without needing speaker notes.
+- Prefer a paired comparison instead of two long unrelated lists.
+- Do not make it a dense table.
+- The slide should feel visual and direct.
 
 ---
 
-## Slide 10. What bad prompting looks like
-
-### Slide title
-**What bad prompting looks like**
-
-### Slide text
-- Vague asks
-- Too much scope in one prompt
-- No success criteria
-- No verification request
-- No ownership boundaries
-
-### Presenter notes
-This slide should feel uncomfortably familiar.
-
-Suggested speaking notes:
-
-> Most bad results start with bad prompting. The usual pattern is a vague request, too much scope, no clear success criteria, no validation step, and no ownership boundary. Then people blame the tool, even though the task itself was underspecified.
-
----
-
-## Slide 11. The CLI patterns and capabilities that matter daily
+## Slide 8. The CLI patterns and capabilities that matter daily
 
 ### Slide title
 **The CLI patterns and capabilities that matter daily**
@@ -295,7 +308,7 @@ Suggested speaking notes:
 
 ---
 
-## Slide 12. How to use `/plan` well
+## Slide 9. How to use `/plan`
 
 ### Slide title
 **How to use `/plan` well**
@@ -315,87 +328,7 @@ Suggested speaking notes:
 
 ---
 
-## Slide 13. How to use review and verification well
-
-### Slide title
-**How to use review and verification well**
-
-### Slide text
-- Ask for review before merge
-- Verify the relevant files and commands
-- Ask for limits, risks, and gaps
-- Iterate in small steps
-
-### Presenter notes
-This should reinforce engineering discipline.
-
-Suggested speaking notes:
-
-> Copilot should not be the last reviewer of its own work. Ask for review, ask what was verified, ask what still looks risky, and keep the loop small. The point is not speed alone. The point is controlled speed.
-
----
-
-## Slide 14. Skills, custom agents, and subagents
-
-### Slide title
-**Skills, custom agents, and subagents**
-
-### Slide text
-- Skills for repeatable specialist tasks
-- Custom agents for specialized roles
-- Subagents for delegation and parallel work
-- Use them when complexity justifies them
-
-### Presenter notes
-Keep this concrete and anti-hype.
-
-Suggested speaking notes:
-
-> Skills help with repeatable specialist tasks. Custom agents let Copilot use more specialized roles. Subagents help delegate and parallelize parts of the work. These are useful when complexity justifies them. They are not things we need to force into every task.
-
----
-
-## Slide 15. What quality and safety mean here
-
-### Slide title
-**What quality and safety mean here**
-
-### Slide text
-- Keep routes thin
-- Use parameterized SQL only
-- Use `projectId`, not `scopeId`
-- Keep frontend and backend contracts aligned
-
-### Presenter notes
-This slide lands better after the CLI block.
-
-Suggested speaking notes:
-
-> After we teach the workflow, we can make the guardrails concrete. In this case, thin routes matter. Parameterized SQL matters. The payload convention matters. Contract alignment matters. These are not generic AI rules. These are the rules that keep this workspace safe and maintainable.
-
----
-
-## Slide 16. What changes if other AI tools are also allowed
-
-### Slide title
-**What changes if other AI tools are also allowed**
-
-### Slide text
-- The repo can share some rules across tools
-- GitHub-governed third-party agents are not the same as local AI tools
-- Each extra tool adds another config and permission model
-- More tools mean more rollout work and more drift risk
-
-### Presenter notes
-Keep this near the end so it does not break the practical block.
-
-Suggested speaking notes:
-
-> Allowing more than one AI tool is possible. The repositories can still provide shared rules. But we should separate two cases. One case is third-party agents enabled inside GitHub governance. The other case is local tools that have their own configuration and permissions outside that path. In both cases the governance burden becomes higher.
-
----
-
-## Slide 17. Demo 1. From bad prompt to good prompt
+## Slide 10. Demo 1. From bad prompt to good prompt
 
 ### Slide title
 **Demo 1: from bad prompt to good prompt**
@@ -415,7 +348,67 @@ Suggested speaking notes:
 
 ---
 
-## Slide 18. Demo 2 and next steps
+## Slide 11. How to use review and verification
+
+### Slide title
+**How to use review and verification well**
+
+### Slide text
+- Ask for review before merge
+- Verify the relevant files and commands
+- Ask for limits, risks, and gaps
+- Iterate in small steps
+
+### Presenter notes
+This should reinforce engineering discipline.
+
+Suggested speaking notes:
+
+> Copilot should not be the last reviewer of its own work. Ask for review, ask what was verified, ask what looks risky, and keep the loop small. The point is not speed alone. The point is controlled speed.
+
+---
+
+## Slide 12. Skills, custom agents, and subagents
+
+### Slide title
+**Skills, custom agents, and subagents**
+
+### Slide text
+- Skills for repeatable specialist tasks
+- Custom agents for specialized roles
+- Subagents for delegation and parallel work
+- Use them when complexity justifies them
+
+### Presenter notes
+Keep this concrete and anti-hype.
+
+Suggested speaking notes:
+
+> Skills help with repeatable specialist tasks. Custom agents let Copilot use more specialized roles. Subagents help delegate and parallelize parts of the work. These are useful when complexity justifies them. They are not things we need to force into every task.
+
+---
+
+## Slide 13. What quality and safety mean here
+
+### Slide title
+**What quality and safety mean here**
+
+### Slide text
+- Keep routes thin
+- Use parameterized SQL only
+- Use `projectId`, not `scopeId`
+- Keep frontend and backend contracts aligned
+
+### Presenter notes
+This slide lands better after the CLI block.
+
+Suggested speaking notes:
+
+> After we teach the workflow, we can make the guardrails concrete. In this case, thin routes matter. Parameterized SQL matters. The payload convention matters. Contract alignment matters. These are not generic AI rules. These are the rules that keep this workspace safe and maintainable.
+
+---
+
+## Slide 14. Demo 2 and next steps
 
 ### Slide title
 **Demo 2 and next steps**
@@ -562,23 +555,14 @@ Do not make these files the center of the presentation.
 
 - For supported Copilot surfaces, path-specific instructions in `.github/instructions/**/*.instructions.md` take precedence over `.github/copilot-instructions.md`.
 - Repository-wide `.github/copilot-instructions.md` takes precedence over agent instruction files such as `AGENTS.md`.
-- `AGENTS.md` is still useful, especially for agent workflows, but it should not replace the repository-wide Copilot baseline in the presentation.
+- `AGENTS.md` is useful, especially for agent workflows, but it should not replace the repository-wide Copilot baseline in the presentation.
 - Support is not identical across all Copilot surfaces. The safest baseline to present first is `.github/copilot-instructions.md` inside each real repository.
 
 ---
 
 # Copilot CLI usage notes
 
-## What good prompting looks like
-
-Good prompts usually include:
-- a clear goal
-- relevant context
-- constraints
-- expected output
-- one small next step
-
-## What bad prompting looks like
+## Bad prompts vs good prompts
 
 Bad prompts usually fail because they:
 - are vague
@@ -586,6 +570,13 @@ Bad prompts usually fail because they:
 - omit verification
 - omit ownership boundaries
 - do not define success
+
+Good prompts usually include:
+- a clear goal
+- relevant context
+- constraints
+- expected output
+- one small next step
 
 ## The commands that matter most
 

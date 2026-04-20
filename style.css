@@ -9,45 +9,103 @@
   --color-secondary: #8d8d8d;
   --color-muted:     #3a3a3a;
   --color-accent:    #ffffff;
-  --font-mono:       'Geist Mono', monospace;
+  --font-display:    'Geist Mono', monospace;
+  --font-text:       'Avenir Next', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-code:       'Geist Mono', monospace;
 
+  --type-h1-size:    3.05rem;
+  --type-h1-leading: 1.04;
+  --type-h1-track:   -0.06em;
+  --type-h1-weight:  700;
+
+  --type-h2-size:    1.6rem;
+  --type-h2-leading: 1.15;
+  --type-h2-track:   -0.04em;
+  --type-h2-weight:  600;
+
+  --type-h3-size:    1.18rem;
+  --type-h3-leading: 1.22;
+  --type-h3-track:   -0.03em;
+  --type-h3-weight:  600;
+
+  --type-h4-size:    0.86rem;
+  --type-h4-leading: 1.3;
+  --type-h4-track:   0.08em;
+  --type-h4-weight:  600;
+
+  --type-body-size:  1.05rem;
+  --type-body-leading: 1.62;
+  --type-body-track: -0.015em;
+  --type-body-weight: 400;
+
+  --type-note-size:  0.95rem;
+  --type-note-leading: 1.55;
+  --type-note-track: -0.01em;
+
+  --type-label-size: 0.8rem;
+  --type-label-leading: 1.2;
+  --type-label-track: 0.12em;
 }
 
 /* ── Base layout ───────────────────────────────────────── */
 .slidev-layout {
   background-color: var(--color-bg) !important;
-  font-family: var(--font-mono) !important;
-  letter-spacing: -0.03em;
+  font-family: var(--font-text) !important;
+  letter-spacing: var(--type-body-track);
 }
 
 .slidev-layout h1 {
-  font-family: var(--font-mono) !important;
-  font-size: 3rem;
-  font-weight: 700;
-  letter-spacing: -0.05em;
+  font-family: var(--font-display) !important;
+  font-size: var(--type-h1-size);
+  font-weight: var(--type-h1-weight);
+  letter-spacing: var(--type-h1-track);
   color: var(--color-accent);
-  line-height: 1.1;
+  line-height: var(--type-h1-leading);
 }
 
 .slidev-layout h2 {
-  font-family: var(--font-mono) !important;
-  font-size: 1.6rem;
-  font-weight: 600;
-  letter-spacing: -0.04em;
+  font-family: var(--font-display) !important;
+  font-size: var(--type-h2-size);
+  font-weight: var(--type-h2-weight);
+  letter-spacing: var(--type-h2-track);
   color: var(--color-text);
+  line-height: var(--type-h2-leading);
+}
+
+.slidev-layout h3 {
+  font-family: var(--font-display) !important;
+  font-size: var(--type-h3-size);
+  font-weight: var(--type-h3-weight);
+  letter-spacing: var(--type-h3-track);
+  color: var(--color-text);
+  line-height: var(--type-h3-leading);
+}
+
+.slidev-layout h4 {
+  font-family: var(--font-text) !important;
+  font-size: var(--type-h4-size);
+  font-weight: var(--type-h4-weight);
+  letter-spacing: var(--type-h4-track);
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  line-height: var(--type-h4-leading);
 }
 
 .slidev-layout p,
 .slidev-layout li {
-  font-family: var(--font-mono) !important;
-  font-size: 1.05rem;
+  font-family: var(--font-text) !important;
+  font-size: var(--type-body-size);
   color: var(--color-text);
-  line-height: 1.65;
+  line-height: var(--type-body-leading);
+  letter-spacing: var(--type-body-track);
 }
 
 /* ── Utility classes ───────────────────────────────────── */
 .text-secondary { color: var(--color-secondary); }
 .text-muted     { color: var(--color-muted); }
+.font-display   { font-family: var(--font-display) !important; }
+.font-text      { font-family: var(--font-text) !important; }
+.font-code      { font-family: var(--font-code) !important; }
 
 /* Slide base: fills the full slide area (use in layout: none slides) */
 .slide-base {
@@ -66,11 +124,122 @@
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-family: var(--font-display);
+  font-size: var(--type-label-size);
   letter-spacing: 0.02em;
   color: var(--color-muted);
   white-space: nowrap;
+}
+
+.deck-shell {
+  position: absolute;
+  inset: 0;
+  padding: 64px 72px 72px;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.06), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 28%),
+    var(--color-bg);
+  overflow: hidden;
+}
+
+.deck-grid {
+  height: 100%;
+  display: grid;
+  gap: 40px;
+}
+
+.deck-grid.split {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+  align-items: center;
+}
+
+.deck-grid.split-reverse {
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr);
+  align-items: center;
+}
+
+.deck-kicker {
+  margin: 0 0 18px;
+  font-family: var(--font-text);
+  font-size: var(--type-label-size);
+  line-height: var(--type-label-leading);
+  letter-spacing: var(--type-label-track);
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.deck-title {
+  margin: 0;
+  max-width: 11ch;
+  font-family: var(--font-display);
+  font-size: var(--type-h1-size);
+  font-weight: var(--type-h1-weight);
+  line-height: var(--type-h1-leading);
+  letter-spacing: var(--type-h1-track);
+  color: var(--color-text);
+}
+
+.deck-copy {
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 14px;
+}
+
+.deck-copy li {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.deck-copy li::before {
+  content: '';
+  display: block;
+  width: 7px;
+  height: 7px;
+  margin-top: 11px;
+  border-radius: 999px;
+  background: var(--color-text);
+}
+
+.deck-note {
+  margin: 20px 0 0;
+  max-width: 40rem;
+  font-family: var(--font-text);
+  font-size: var(--type-note-size);
+  line-height: var(--type-note-leading);
+  letter-spacing: var(--type-note-track);
+  color: var(--color-secondary);
+}
+
+.card-surface {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 26px;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.35);
+}
+
+.muted-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 112px 112px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), transparent 80%);
+  pointer-events: none;
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.75s ease forwards;
 }
 
 /* ── Animation utilities ───────────────────────────────── */

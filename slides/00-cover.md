@@ -29,19 +29,20 @@ layout: none
 .line {
   margin: 0;
   opacity: 0;
-  font-family: 'Geist Mono', monospace;
 }
 
 .line-title {
+  font-family: var(--font-display);
   font-size: 2.4rem;
-  font-weight: 700;
-  letter-spacing: -0.05em;
+  font-weight: var(--type-h1-weight);
+  letter-spacing: var(--type-h1-track);
   line-height: 1.1;
   color: #f5f5f5;
   animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
 }
 
 .line-subtitle {
+  font-family: var(--font-text);
   font-size: 1.25rem;
   font-weight: 400;
   letter-spacing: -0.03em;

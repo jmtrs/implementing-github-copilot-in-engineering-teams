@@ -2,7 +2,7 @@
 
 ## Contexto
 
-Deck Slidev de 18 slides para un team rollout de GitHub Copilot.  
+Deck Slidev de 14 slides para un team rollout de GitHub Copilot.  
 La estructura fue reorientada para apoyarse en un monorepo real derivado de X, pero presentado de forma anónima y sin detalles privados.
 
 ---
@@ -35,24 +35,20 @@ La estructura fue reorientada para apoyarse en un monorepo real derivado de X, p
 
 ### Fase 2 — Deck
 - [x] Cover slide
-- [ ] Slide 1: "Why this needs a shared AI operating model"
-- [ ] Slide 2: "How Copilot works in practice"
-- [ ] Slide 3: "Three control layers"
-- [ ] Slide 4: "What Enterprise and the organization control"
-- [ ] Slide 5: "What Enterprise does not solve"
-- [ ] Slide 6: "What a real repo setup looks like"
-- [ ] Slide 7: "The baseline we assume is already mounted"
-- [ ] Slide 8: "What each repository still must define"
-- [ ] Slide 9: "What good prompting looks like"
-- [ ] Slide 10: "What bad prompting looks like"
-- [ ] Slide 11: "The CLI patterns and capabilities that matter daily"
-- [ ] Slide 12: "How to use `/plan` well"
-- [ ] Slide 13: "How to use review and verification well"
-- [ ] Slide 14: "Skills, custom agents, and subagents"
-- [ ] Slide 15: "What quality and safety mean here"
-- [ ] Slide 16: "What changes if other AI tools are also allowed"
-- [ ] Slide 17: "Demo 1: from bad prompt to good prompt"
-- [ ] Slide 18: "Demo 2 and next steps"
+- [x] Slide 1: "Why this needs a shared AI operating model"
+- [x] Slide 2: "How Copilot works in practice"
+- [x] Slide 3: "Three control layers"
+- [x] Slide 4: "What Enterprise and the organization control"
+- [x] Slide 5: "What an AI repo setup looks like"
+- [x] Slide 6: "What each repository must define"
+- [x] Slide 7: "Bad prompts vs good prompts"
+- [x] Slide 8: "The Copilot CLI patterns"
+- [ ] Slide 9: "How to use `/plan`"
+- [ ] Slide 10: "Demo 1: from bad prompt to good prompt"
+- [ ] Slide 11: "How to use review and verification"
+- [ ] Slide 12: "Skills, custom agents, and subagents"
+- [ ] Slide 13: "What quality and safety mean here"
+- [ ] Slide 14: "Demo 2 and next steps"
 
 ### Fase 3 — Notes y consistencia
 - [ ] Speaker notes en todos los slides
@@ -84,6 +80,3 @@ La estructura fue reorientada para apoyarse en un monorepo real derivado de X, p
 └── PLAN.md
 ```
 
----
-
-**Estado actual**: cover y slides 1 creada;
