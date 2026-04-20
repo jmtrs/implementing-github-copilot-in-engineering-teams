@@ -3,7 +3,7 @@
 ## Contexto
 
 Deck Slidev de 14 slides para un team rollout de GitHub Copilot. 13 implementadas, 1 pendiente (slide 10).
-La estructura se apoya en BIM2GO (Node.js + React) como caso real, presentado de forma anónima.
+La estructura se apoya en  (Node.js + React) como caso real, presentado de forma anónima.
 
 ---
 
@@ -15,11 +15,11 @@ La estructura se apoya en BIM2GO (Node.js + React) como caso real, presentado de
 - **Animaciones**: Nativas Slidev (`fade-up`, `v-motion`) — sin librerías externas
 - **Tipografía**: Geist Mono vía `@fontsource/geist-mono`
 - **Paleta**: `#000` fondo · `#f5f5f5` texto primario · `#8d8d8d` secundario
-- **Narrativa**: rollout realista basado en BIM2GO, anonimizado
+- **Narrativa**: rollout realista basado en X, anonimizado
 - **Privacidad**: sin nombre del producto en slides, sin URLs internas, sin screenshots
 - **Sin em dashes** en texto visible de slides
 - **Componentes Vue** para layouts complejos (evita bugs del parser markdown de Slidev)
-- **Demo 2**: agentes reales en `BIM2GO_backend/.github/agents/`, demo con `/fleet`
+- **Demo 2**: agentes reales en `X_backend/.github/agents/`, demo con `/fleet`
 
 ---
 
@@ -31,7 +31,7 @@ La estructura se apoya en BIM2GO (Node.js + React) como caso real, presentado de
 - [x] Confirmar stack Slidev y tipografía base
 
 ### Fase 1 — Reorientación editorial
-- [x] Cambiar `_refs/guide.md` a rollout basado en BIM2GO
+- [x] Cambiar `_refs/guide.md` a rollout basado en X
 - [x] Caso base: repo con guidance parcial pero sin baseline Copilot
 - [x] Reescribir demos para baseline + tarea cross-layer
 - [x] Mantener el contenido anonimizado pero trazable a una estructura real
@@ -102,10 +102,10 @@ La estructura se apoya en BIM2GO (Node.js + React) como caso real, presentado de
 └── PLAN.md
 ```
 
-## Agentes de demo (BIM2GO)
+## Agentes de demo (X)
 
 ```
-BIM2GO_backend/.github/agents/
+X_backend/.github/agents/
 ├── test-writer.agent.md    — Jest + Supertest tests para rutas Express
 └── sql-reviewer.agent.md  — revisión SQL en modelos, HIGH / MEDIUM / INFO
 ```

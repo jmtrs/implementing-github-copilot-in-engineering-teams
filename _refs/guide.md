@@ -508,7 +508,7 @@ Walk through what Copilot does:
 Show how custom agents are just markdown files in the repo, and how `/fleet` delegates two independent tasks to them in parallel — without the presenter waiting for one to finish before starting the other.
 
 ### Setup (before the demo)
-Two agent files already exist in `BIM2GO_backend/.github/agents/`:
+Two agent files already exist in `X_backend/.github/agents/`:
 
 - `test-writer.agent.md` — reads the existing test patterns in `test/`, then writes a Jest + Supertest integration test for the route under review.
 - `sql-reviewer.agent.md` — reads a model file in `db/` and flags SQL queries that are not parameterized, classified as HIGH / MEDIUM / INFO.
