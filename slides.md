@@ -33,3 +33,7 @@ src: ./slides/07-bad-vs-good-prompts.md
 ---
 src: ./slides/08-cli-patterns.md
 ---
+---
+src: ./slides/09-how-to-use-plan.md
+---
+

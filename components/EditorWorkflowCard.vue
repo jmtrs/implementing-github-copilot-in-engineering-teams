@@ -50,7 +50,7 @@
 
           <div class="terminal-strip fade-up" style="animation-delay: 1.18s">
             <span class="terminal-prompt">$</span>
-            <span class="terminal-command">gh copilot suggest "extract invalid email validation helper"</span>
+            <span class="terminal-command">copilot /plan "extract invalid email validation helper"</span>
             <span class="terminal-cursor"></span>
           </div>
         </div>

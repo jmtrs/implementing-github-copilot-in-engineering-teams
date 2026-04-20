@@ -100,7 +100,7 @@ layout: none
 </style>
 
 <!--
-Even with Enterprise in place, each repository needs to define the rules that matter in that codebase.
+Each repository needs to define the rules in their Codebase.
 
 That includes its architecture, how contracts are owned, and how changes are validated.
 
@@ -108,5 +108,5 @@ Path-specific instructions let each side of the workspace define its own rules w
 
 And verification commands must be real commands in the file, not just tool names.
 
-This is where Copilot becomes project-aware instead of generic.
+This is where Copilot becomes project-aware.
 -->

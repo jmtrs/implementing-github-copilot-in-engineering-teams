@@ -57,6 +57,4 @@ Policies are grouped into feature, privacy, and models.
 Cloud agent and MCP are controlled in the AI controls area, and usage visibility comes from dashboards and APIs.
 
 That visibility is useful, but it is not complete across every surface.
-
-So this layer matters, but it defines the operating envelope more than the day-to-day engineering workflow.
 -->

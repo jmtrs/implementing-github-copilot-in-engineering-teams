@@ -93,11 +93,19 @@ layout: none
 </style>
 
 <!--
-We do not need to teach every CLI feature.
+The Copilot CLI patterns.
 
-We need the few patterns that change daily work.
+We need to know a few patterns to help us work better with Copilot.
 
-Normal conversation for scoped questions. /plan before complex or risky work. /review to catch what Copilot missed. Skills for repeatable tasks. Agents when the problem is big enough to delegate.
+Normal conversation for scoped questions. 
 
-That is the full set.
+/plan before complex or risky work. 
+
+/review to catch what Copilot missed. 
+
+Skills for repeatable tasks. 
+
+Agents when the problem is big enough to delegate.
+
+Let's take a look at each of these patterns.
 -->

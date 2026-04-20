@@ -308,47 +308,35 @@ Suggested speaking notes:
 
 ---
 
-## Slide 9. How to use `/plan`
+## Slide 9. Live demo 01 — Add a loading state to the login button
 
 ### Slide title
-**How to use `/plan` well**
+**Live demo 01: Add a loading state to the login button**
 
 ### Slide text
-- Use it for complex or risky work
-- Let Copilot inspect before coding
-- Review the plan
-- Execute one small step first
+Two paths, same task. Login button gives no visual feedback on submit.
+
+**Without /plan:**
+- Direct prompt: "Add a loading state to the login button"
+- Copilot infers context from the open file — no codebase inspection
+- May duplicate patterns or miss the auth hook state
+
+**With /plan + Socratic:**
+- `/plan "Add a loading state to the login button"`
+- Copilot inspects codebase: auth hook, button component, existing loading patterns
+- Asks clarifying questions before writing — built-in behavior of /plan
+- Waits for approval, then targeted implementation · execute one step · review
 
 ### Presenter notes
-This is one of the key habit-change slides.
+This is a live demo. Run both paths in the terminal. The audience should see the difference in what Copilot touches and asks.
 
 Suggested speaking notes:
 
-> `/plan` is one of the highest leverage habits. Use it when the task is complex, risky, or cross-layer. Let Copilot inspect the codebase first. Review the plan. Then execute only one small step. That keeps context clean and makes the work reviewable.
+> We are going to run this demo live. The scenario is a login button with no visual feedback — the user clicks and nothing happens until the response comes back. We will run the same task twice: first with a direct prompt, then with /plan. With /plan, we also tell Copilot to ask if it has doubts before implementing — that is the Socratic mode. Watch how the plan changes what Copilot touches and what it leaves alone.
 
 ---
 
-## Slide 10. Demo 1. From bad prompt to good prompt
-
-### Slide title
-**Demo 1: from bad prompt to good prompt**
-
-### Slide text
-- Show a vague prompt
-- Improve it with context and constraints
-- Use `/plan`
-- Execute only the first step
-
-### Presenter notes
-This demo should prove why prompt quality changes the outcome.
-
-Suggested speaking notes:
-
-> This demo is about behavior, not features. We start with a weak prompt, improve it, ask for a plan, and keep the work to one small step. The audience should see that most day-to-day gains come from better prompting and better scoping.
-
----
-
-## Slide 11. How to use review and verification
+## Slide 10. How to use review and verification
 
 ### Slide title
 **How to use review and verification well**
@@ -368,7 +356,7 @@ Suggested speaking notes:
 
 ---
 
-## Slide 12. Skills, custom agents, and subagents
+## Slide 11. Skills, custom agents, and subagents
 
 ### Slide title
 **Skills, custom agents, and subagents**
@@ -388,7 +376,7 @@ Suggested speaking notes:
 
 ---
 
-## Slide 13. What quality and safety mean here
+## Slide 12. What quality and safety mean here
 
 ### Slide title
 **What quality and safety mean here**
@@ -408,7 +396,7 @@ Suggested speaking notes:
 
 ---
 
-## Slide 14. Demo 2 and next steps
+## Slide 13. Demo 2 and next steps
 
 ### Slide title
 **Demo 2 and next steps**
@@ -430,49 +418,30 @@ Suggested speaking notes:
 
 # Demo section
 
-## Demo 1. From bad prompt to good prompt
+## Demo 1. Add a loading state to the login button
 
 ### Goal
-Show that prompt quality and task framing directly change the usefulness of Copilot CLI.
+Show how `/plan` inspects the codebase, asks clarifying questions, and waits for approval before writing any code.
 
-### What should already be true before the demo
-- The frontend repository already has its repository-wide Copilot baseline.
-- The backend repository already has its repository-wide Copilot baseline.
-- Both repositories use `/.github/copilot-instructions.md` as the main Copilot baseline.
-- `AGENTS.md` remains available as complementary guidance.
+### Demo flow 01
 
-### Suggested flow
-1. Start with a vague prompt that asks for too much.
-2. Show why the result is weak or underspecified.
-3. Rewrite the prompt with:
-   - clear goal
-   - relevant context
-   - constraints
-   - expected output
-   - one small next step
-4. Run `/plan`.
-5. Continue with the first step only.
-
-### Example bad prompt
+Run:
 
 ```text
-Fix the API and frontend for this feature.
+/plan The login submit button gives no visual feedback while user is awaiting. Add a loading state to the button during the request. Use socratic method to ask clarifying questions if needed.
 ```
 
-### Example improved prompt
-
-```text
-/plan Update one API payload field used by a frontend service wrapper.
-Check the owning backend route and model first.
-Then identify the frontend wrapper that must stay aligned.
-Do not implement the whole change at once.
-Propose the first small step only.
-```
+Walk through what Copilot does:
+- Inspects the codebase — finds `SubmitButton.jsx`, `LogIn.jsx`, existing patterns
+- Asks clarifying questions if needed before writing
+- Generates a plan — review it with the audience
+- Approve and execute only the first step
 
 ### What to explain after the demo
-- Bad output often starts with bad prompting.
-- `/plan` is useful when scope or risk is unclear.
-- Smaller first steps improve both quality and reviewability.
+- The prompt describes the problem and the context — not the solution.
+- Copilot inspects before it writes — that is the key difference.
+- The clarifying questions are not a delay — they are the inspection.
+- Smaller, approved steps are easier to review and safer to merge.
 
 ---
 
