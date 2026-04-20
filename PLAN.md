@@ -47,22 +47,22 @@ La estructura se apoya en  (Node.js + React) como caso real, presentado de forma
 - [x] Slide 7: "Bad prompts vs good prompts"
 - [x] Slide 8: "The Copilot CLI patterns"
 - [x] Slide 9: "Demo 1 — login button feedback: without /plan vs with /plan"
-- [ ] Slide 10: "How to use /review"
+- [x] Slide 10: descartado — el deck cierra correctamente con la numeración actual
 - [x] Slide 11: "Skills and custom agents"
 - [x] Slide 12: "Subagents"
 - [x] Slide 13: "Demo 2 — Agents and fleet"
 - [x] Slide 14: "Closing"
 
 ### Fase 3 — Notes y consistencia
-- [ ] Speaker notes en todos los slides
-- [ ] Speaker notes en inglés con frases cortas y sin modismos
-- [ ] Revisar que ningún slide tenga em dashes en texto visible
+- [x] Speaker notes en todos los slides
+- [x] Speaker notes en inglés con frases cortas y sin modismos
+- [x] Revisar que ningún slide tenga em dashes en texto visible
 
 ### Fase 4 — Verificación
-- [ ] Probar modo presentación completo (`npm run dev`)
-- [ ] Verificar visualmente el deck completo
-- [ ] Ejecutar build del deck (`npm run build`)
-- [ ] Exportar PDF de respaldo (`npm run export`)
+- [x] Probar modo presentación completo (`npm run dev`)
+- [x] Verificar visualmente el deck completo
+- [x] Ejecutar build del deck (`npm run build`)
+- [x] Exportar PDF de respaldo (`npm run export`)
 
 ---
 
