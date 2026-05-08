@@ -9,6 +9,7 @@ layout: none
     title-delay="0.10s"
   />
   <Subagents />
+  <TenorGif postid="1461380403278441959" aspect-ratio="0.965863" />
 </DeckFrame>
 
 <style scoped>
@@ -30,7 +31,8 @@ layout: none
 <!--
 /fleet breaks your task into independent subtasks and runs them in parallel, each with its own agent and context window.
 
-/delegate goes further — it runs in the cloud, which runs async, commits to a new branch, and opens a draft PR.
+/delegate goes further — it runs in the cloud (this is github you know), runs async, commits to a new branch, and opens a draft PR.
 
-Both are useful when the task is large and complex enough. Neither is something you should use for every task.
+Both are useful when the task is large and complex enough. 
+But I don't recomend to use for every task. (this eats token so fast)
 -->

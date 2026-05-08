@@ -42,9 +42,9 @@ layout: none
 </style>
 
 <!--
-We have two agents already in the repo. One writes integration tests. The other reviews SQL for injection risks.
+I've made two agents for the repo. One writes integration tests. The other reviews SQL for injection risks.
 
-Both are markdown files in .github/agents
+Both are markdown files inside of .github/agents
 
 Now we run /fleet and delegate both tasks at the same time. Each agent runs in its own context. No one blocks the other.
 -->

@@ -35,13 +35,11 @@ layout: none
 </style>
 
 <!--
-On the left is the pattern that usually produces weak results.
+Okay, Bad and good prompts. On the left is the pattern that usually produces weak results.
 
 The ask is vague, the scope is too large, there is no clear success criteria, no verification step, and no ownership boundary.
 
 On the right is the same task shaped properly.
 
 The goal is clear, the relevant context is included, constraints are explicit, the expected output is defined, and the next step is small enough to execute well.
-
-The point is simple: the tool usually reflects the shape of the task we give it.
 -->

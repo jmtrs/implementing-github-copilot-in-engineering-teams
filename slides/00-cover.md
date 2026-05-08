@@ -56,7 +56,7 @@ Hi everyone, let's start this presentation, I'm José Miguel Torres and we are g
 
 AI is already part of our daily work.
 
-Today I want to focus on how we use GitHub Copilot as a team.
+Today I want to focus on how we can use Copilot as a team.
 
-Shared setup, shared workflow, and guardrails that improve our productivity 
+Shared setup, shared workflow, and guardrails that improve our productivity
 -->

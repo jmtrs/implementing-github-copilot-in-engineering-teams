@@ -32,9 +32,7 @@ Now Skills
 
 Skills are repeatable instruction packages. You define them once and invoke them by name.
 
-Custom agents are specialized,they have their own tools, model configuration, and behavioral scope.
+Custom agents are specialized, they have their own tools, model configuration, and scope.
 
-Both live in the repository, which means the team shares them.
-
-Use them when a task is specialist enough to justify a dedicated pattern.
+Both live in the repository, which means the team can shares them.
 -->

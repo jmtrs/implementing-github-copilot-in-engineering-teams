@@ -38,7 +38,7 @@ Let's talk about them.
 
 In our case, our working workspace has a frontend repository and a backend repository.
 
-Copilot lives in the repositories because that's where the code is.
+Copilot lives in the repositories, Why? because that's where the code is.
 
-Repository-wide copilot-instructions.md gives us the most portable Copilot configuration, and AGENTS.md helps, especially for agent workflows.
+The copilot-instructions.md gives us the most portable Copilot configuration, and AGENTS.md helps, especially for agent workflows.
 -->

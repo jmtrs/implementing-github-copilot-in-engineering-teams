@@ -41,13 +41,15 @@ layout: none
 </style>
 
 <!--
-We are going to run this demo live.
+This is the 1st demo and we are going to run this task with /plan
 
-The scenario is a login button with no visual feedback — the user clicks and nothing happens until the response comes back.
+The scenario is simple a login button with no visual feedback — the user clicks and nothing happens until the response comes back.
 
-We will run this task with /plan.
-
-With /plan, we also tell Copilot to ask if it has doubts before implementing -that is the Socratic mode.
+With /plan, we also tell Copilot to ask if it has any doubts before implementing, that is the Socratic mode.
 
 Let's see how this works.
+
+this is copilot CLI, and the prompt says : /plan..
+
+When the plan is complete, we can /clear to remove the context for the model, this can prevent allucinations of the AI model (some model has 128k others 1M it depends) /context we can see the usage
 -->

@@ -97,15 +97,13 @@ Copilot CLI patterns.
 
 We need to know a few patterns to help us work better with Copilot.
 
-Normal conversation for scoped questions. 
+Normal conversation is for scoped questions, no for large tasks. 
 
 /plan before complex or risky work. 
 
 /review to catch what Copilot missed. 
 
-Skills for repeatable tasks. 
+The Skills are for repeatable tasks. (we are going to talk about it later)
 
 And agents when the problem is big enough to delegate.
-
-Let's take a look to some of these patterns.
 -->

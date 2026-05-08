@@ -52,9 +52,7 @@ This lives under AI controls, including Policies, Models, Agents, MCP, and metri
 
 For example, enterprise owners can define policies centrally or delegate them to organization owners.
 
-Policies are grouped into feature, privacy, and models.
-
-Cloud agent and MCP are controlled in the AI controls area, and usage visibility comes from dashboards and APIs.
+All of this are controls we can customize on Github Dashboard
 
 That visibility is useful, but it is not complete without local tooling and user environment controls.
 -->

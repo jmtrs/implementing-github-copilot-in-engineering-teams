@@ -104,9 +104,12 @@ Each repository needs to define the rules in their Codebase.
 
 That includes its architecture, how contracts are owned, and how changes are validated.
 
-Path-specific instructions let each side of the workspace define its own rules without duplication.
+Path-specific instructions allow each side of the workspace define their own rules.
 
 And verification commands must be real commands in the file, to be executed by Copilot.
 
-Let's see it in our project.
+Let's see it in our project. First, the frontend inside of the .github folder, we haver the instructions.md for copilot, inside it all the tech stack, project structure, codign guidelines (with important rules) and comands
+
+For the Backend, more or less the same but specially made for it.
+I'm going to upload this later, and everyone of us are going to have the same rules for copilot, this can be override by local configurations
 -->

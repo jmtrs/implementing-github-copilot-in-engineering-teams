@@ -39,9 +39,7 @@ Copilot is not only autocomplete.
 In practice, it works through the context it sees, the instructions that receives, 
 the policies that enable or disable features, and the workflow we expect people to follow.
 
-The result depends on the environment we create around it.
+The result depends on the environment we create.
 
-So rollout is not one switch.
-
-It is a system we shape on purpose.
+This is not only a setting. It is practice, and patience.
 -->

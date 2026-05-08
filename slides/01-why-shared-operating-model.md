@@ -75,11 +75,11 @@ layout: none
 </style>
 
 <!--
-The question here is not how to access to AI tools,
+The question here is not how to access to AI tools, everyone here I think have access to some AI tool
 
 The question is how we can use them consistently.
 
-If each person uses Copilot with a different approach, we get drift, review noise, and uneven quality.
+If each person uses Copilot with a different approach, we get drift, review noise, and poor quality.
 
 What we need is one shared way of working.
 -->
